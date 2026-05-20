@@ -83,7 +83,7 @@
           <a href="https://www.instagram.com/drkavipriyao/" aria-label="Instagram" target="_blank">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
           </a>
-          <a href="https://wa.me/919876543210" aria-label="WhatsApp" target="_blank">
+          <a href="https://wa.me/919003209903" aria-label="WhatsApp" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
           </a>
         </div>
@@ -98,397 +98,78 @@
 </div>
 
 <!-- ════════════ ABOUT ════════════ -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ZEN | Outtamane Dental Clinic – About Section</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --gold: #B8933F;
-  --gold-pale: #E8D5A3;
-  --cream: #F5F0E8;
-  --navy: #1A2332;
-  --navy-mid: #243044;
-  --text: #2C2C2C;
-  --muted: #6B6B6B;
-  --white: #fff;
-}
-
-body {
-  font-family: 'DM Sans', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-}
-
-/* ── SECTION ── */
-.about-section {
-  padding: 36px 0 30px;
-  background: var(--cream);
-  overflow: hidden;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 0 28px;
-}
-
-/* ── LABEL ── */
-.section-label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--gold);
-  margin-bottom: 12px;
-}
-.section-label::after {
-  content: '';
-  width: 40px; height: 1.5px;
-  background: var(--gold);
-  display: block;
-}
-
-/* ── GRID ── */
-.about-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 32px;
-  align-items: center;
-}
-
-/* ── LEFT ── */
-.about-left { padding-right: 4px; }
-
-.about-heading {
-  font-family: 'Playfair Display', serif;
-  font-size: clamp(20px, 2.4vw, 30px);
-  font-weight: 600;
-  line-height: 1.22;
-  color: var(--navy);
-  margin-bottom: 10px;
-}
-.about-heading em { font-style: italic; color: var(--gold); }
-
-.about-desc {
-  font-size: 12.5px;
-  line-height: 1.65;
-  color: var(--muted);
-  margin-bottom: 18px;
-  max-width: 340px;
-}
-
-/* ── FEATURES ── */
-.feature-list {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.feature-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 11px;
-}
-
-.feat-icon-box {
-  width: 36px; height: 36px;
-  flex-shrink: 0;
-  border: 1.5px solid var(--gold-pale);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(184,147,63,0.06);
-}
-.feat-icon-box svg {
-  width: 16px; height: 16px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.6;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-
-.feat-text h4 {
-  font-size: 12.5px;
-  font-weight: 600;
-  color: var(--navy);
-  margin-bottom: 1px;
-}
-.feat-text p {
-  font-size: 11.5px;
-  color: var(--muted);
-  line-height: 1.5;
-  max-width: 260px;
-}
-
-/* ── RIGHT – IMAGE COMPOSITE ── */
-.about-right {
-  position: relative;
-  height: 360px;
-}
-
-.main-photo {
-  position: absolute;
-  inset: 0;
-  border-radius: 200px 200px 160px 160px / 160px 160px 140px 140px;
-  overflow: hidden;
-  background: var(--navy-mid);
-  z-index: 1;
-}
-.main-photo img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  object-position: center top;
-  display: block;
-}
-.main-photo::after {
-  content: '';
-  position: absolute;
-  bottom: 0; left: 0; right: 0;
-  height: 48%;
-  background: linear-gradient(to bottom, transparent, rgba(26,35,50,0.78));
-  z-index: 2;
-}
-
-.clinic-logo-overlay {
-  position: absolute;
-  top: 22px; right: 20px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-}
-.clinic-logo-overlay svg {
-  width: 34px; height: 34px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.3;
-}
-.clinic-logo-overlay span {
-  font-family: 'Playfair Display', serif;
-  font-size: 8.5px;
-  letter-spacing: 0.2em;
-  color: var(--white);
-  text-transform: uppercase;
-  text-align: center;
-  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
-  line-height: 1.5;
-}
-
-.years-badge {
-  position: absolute;
-  bottom: 108px;
-  left: -16px;
-  z-index: 10;
-  width: 90px; height: 90px;
-  background: var(--navy);
-  border-radius: 50%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 10px;
-  box-shadow: 0 6px 24px rgba(0,0,0,0.28);
-  border: 2px solid rgba(184,147,63,0.35);
-}
-.years-badge .badge-icon svg {
-  width: 18px; height: 18px;
-  stroke: var(--gold);
-  fill: none;
-  stroke-width: 1.5;
-}
-.years-badge .num {
-  font-family: 'Playfair Display', serif;
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--white);
-  line-height: 1;
-  margin-top: 2px;
-}
-.years-badge .lbl {
-  font-size: 8.5px;
-  font-weight: 500;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: var(--gold-pale);
-  line-height: 1.3;
-  margin-top: 3px;
-}
-
-.bottom-thumbs {
-  position: absolute;
-  bottom: 0;
-  left: 16px; right: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-  z-index: 10;
-  height: 100px;
-}
-.thumb {
-  border-radius: 12px;
-  overflow: hidden;
-  background: var(--navy-mid);
-  box-shadow: 0 4px 18px rgba(0,0,0,0.22);
-  border: 2px solid rgba(255,255,255,0.14);
-}
-.thumb img {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-/* ════════ RESPONSIVE ════════ */
-
-/* Tablet (768–1024) */
-@media (max-width: 1024px) {
-  .about-layout { gap: 24px; }
-  .about-right { height: 320px; }
-}
-
-/* Mobile / small tablet – stack columns */
-@media (max-width: 767px) {
-  .about-section { padding: 28px 0 24px; }
-  .container { padding: 0 16px; }
-
-  .about-layout {
-    grid-template-columns: 1fr;
-    gap: 22px;
-  }
-
-  .about-left { padding-right: 0; }
-  .about-desc { max-width: 100%; }
-  .feat-text p { max-width: 100%; }
-
-  .about-right {
-    height: 290px;
-    margin-left: 16px;
-  }
-
-  .years-badge {
-    width: 76px; height: 76px;
-    left: -18px; bottom: 90px;
-  }
-  .years-badge .num { font-size: 15px; }
-  .years-badge .lbl { font-size: 7px; }
-
-  .bottom-thumbs { height: 86px; left: 6px; }
-
-  .clinic-logo-overlay { top: 12px; right: 10px; }
-  .clinic-logo-overlay svg { width: 24px; height: 24px; }
-  .clinic-logo-overlay span { font-size: 6.5px; }
-}
-
-/* Small phones */
-@media (max-width: 420px) {
-  .about-right { height: 240px; }
-  .bottom-thumbs { height: 72px; }
-  .years-badge { width: 64px; height: 64px; bottom: 78px; left: -14px; }
-  .years-badge .num { font-size: 13px; }
-  .about-heading { font-size: 19px; }
-  .feature-list { gap: 10px; }
-}
-</style>
-</head>
-<body>
-
 <section class="about-section" id="about">
   <div class="container">
-
-    <p class="section-label">About Us</p>
-
+    <p class="section-label reveal">About Us</p>
     <div class="about-layout">
 
       <!-- LEFT -->
       <div class="about-left">
-        <h2 class="about-heading">
+        <h2 class="about-heading reveal delay-1">
           Compassionate Care<br>for a <em>Healthier Smile</em>
         </h2>
-
-        <p class="about-desc">
+        <p class="about-desc reveal delay-2">
           At ZEN | Outtamane's Dental Clinic, we are dedicated to providing exceptional dental care in a comfortable and friendly environment. Our experienced team uses advanced technology to deliver personalized treatments for every smile.
         </p>
-
-        <div class="feature-list">
-
+        <div class="feature-list reveal delay-3">
           <div class="feature-item">
             <div class="feat-icon-box">
-              <svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 7 4 7 7c0 1.5.4 3 1 4.5L9 16c.3 1.5 1.2 2.5 2.5 2.5h1C13.8 18.5 14.7 17.5 15 16l1-4.5C16.6 10 17 8.5 17 7c0-3-2.5-5-5-5z"/><path d="M9 11.5c0 1-.5 2-1.5 2.5"/><path d="M15 11.5c0 1 .5 2 1.5 2.5"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9.5 2 7 4 7 7c0 1.5.4 3 1 4.5L9 16c.3 1.5 1.2 2.5 2.5 2.5h1C13.8 18.5 14.7 17.5 15 16l1-4.5C16.6 10 17 8.5 17 7c0-3-2.5-5-5-5z"/></svg>
             </div>
             <div class="feat-text">
               <h4>Advanced Technology</h4>
               <p>We use the latest dental technology for accurate diagnosis and effective treatment.</p>
             </div>
           </div>
-
           <div class="feature-item">
             <div class="feat-icon-box">
-              <svg viewBox="0 0 24 24"><path d="M12 21C12 21 4 15 4 9a4 4 0 018-1.5A4 4 0 0120 9c0 6-8 12-8 12z"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21C12 21 4 15 4 9a4 4 0 018-1.5A4 4 0 0120 9c0 6-8 12-8 12z"/></svg>
             </div>
             <div class="feat-text">
               <h4>Patient-Centered Care</h4>
               <p>Your comfort and satisfaction are our top priorities at every step.</p>
             </div>
           </div>
-
           <div class="feature-item">
             <div class="feat-icon-box">
-              <svg viewBox="0 0 24 24"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2C20 17.5 12 22 12 22z"/><path d="M9 12l2 2 4-4"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0112 2a8 8 0 018 8.2C20 17.5 12 22 12 22z"/><path d="M9 12l2 2 4-4"/></svg>
             </div>
             <div class="feat-text">
               <h4>Safe &amp; Hygienic Environment</h4>
               <p>We maintain the highest standards of cleanliness and sterilization.</p>
             </div>
           </div>
-
           <div class="feature-item">
             <div class="feat-icon-box">
-              <svg viewBox="0 0 24 24"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="8" r="2.5"/><path d="M17 14c1.7 0 3.5.8 4.5 2.2"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="7" r="3"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><circle cx="17" cy="8" r="2.5"/><path d="M17 14c1.7 0 3.5.8 4.5 2.2"/></svg>
             </div>
             <div class="feat-text">
               <h4>Experienced Team</h4>
               <p>Our skilled dentists bring years of expertise to give you the best care possible.</p>
             </div>
           </div>
-
         </div>
       </div>
 
       <!-- RIGHT -->
-      <div class="about-right">
-
+      <div class="about-right reveal-right">
         <div class="main-photo">
           <img src="assets/mam pic.png" alt="Dr. Kavipriya treating a patient"
                onerror="this.src='https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=700&q=80'">
         </div>
-
         <div class="clinic-logo-overlay">
-          <svg viewBox="0 0 48 48">
-            <path d="M24 6C18 6 13 10 13 16c0 2 .6 4 1.5 6L16 28c.5 2.5 2 4 4.5 4h7c2.5 0 4-1.5 4.5-4l1.5-6c.9-2 1.5-4 1.5-6 0-6-5-10-11-10z" stroke="#B8933F" stroke-width="1.5" fill="none"/>
+          <svg viewBox="0 0 48 48" fill="none" stroke="#B8933F" stroke-width="1.3">
+            <path d="M24 6C18 6 13 10 13 16c0 2 .6 4 1.5 6L16 28c.5 2.5 2 4 4.5 4h7c2.5 0 4-1.5 4.5-4l1.5-6c.9-2 1.5-4 1.5-6 0-6-5-10-11-10z"/>
           </svg>
           <span>ZEN | Outtamane<br>DENTAL CLINIC</span>
         </div>
-
         <div class="years-badge">
           <div class="badge-icon">
-            <svg viewBox="0 0 24 24"><path d="M12 2C9.5 2 7 4 7 7c0 1.5.4 3 1 4.5L9 16c.3 1.5 1.2 2.5 2.5 2.5h1C13.8 18.5 14.7 17.5 15 16l1-4.5C16.6 10 17 8.5 17 7c0-3-2.5-5-5-5z"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2C9.5 2 7 4 7 7c0 1.5.4 3 1 4.5L9 16c.3 1.5 1.2 2.5 2.5 2.5h1C13.8 18.5 14.7 17.5 15 16l1-4.5C16.6 10 17 8.5 17 7c0-3-2.5-5-5-5z"/></svg>
           </div>
           <span class="num">10+</span>
           <span class="lbl">Years of Trust</span>
         </div>
-
         <div class="bottom-thumbs">
           <div class="thumb">
             <img src="assets/download (2).jpg" alt="Clinic Reception"
@@ -499,15 +180,12 @@ body {
                  onerror="this.src='https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=400&q=80'">
           </div>
         </div>
-
       </div>
 
     </div>
   </div>
 </section>
 
-</body>
-</html>
 <!-- ════════════ WHY CHOOSE US ════════════ -->
 <section class="why" id="why">
   <div class="container">
@@ -565,7 +243,6 @@ body {
       <h2>Complete Care For <span>Your Smile</span></h2>
       <p>From advanced treatments to personalized dental care, we provide modern solutions that keep your smile healthy, confident, and beautiful.</p>
     </div>
-
     <div class="services-grid">
       <div class="svc-card reveal delay-1">
         <div class="svc-card-img">
@@ -579,7 +256,6 @@ body {
           <a href="#contact" class="svc-arrow"><i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
-
       <div class="svc-card reveal delay-2">
         <div class="svc-card-img">
           <div class="svc-card-img-placeholder"><div class="icon-lg">✨</div><span class="upload-hint">Service Image</span></div>
@@ -592,7 +268,6 @@ body {
           <a href="#contact" class="svc-arrow"><i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
-
       <div class="svc-card reveal delay-3">
         <div class="svc-card-img">
           <div class="svc-card-img-placeholder"><div class="icon-lg">🛡️</div><span class="upload-hint">Service Image</span></div>
@@ -605,7 +280,6 @@ body {
           <a href="#contact" class="svc-arrow"><i class="fas fa-arrow-right"></i></a>
         </div>
       </div>
-
       <div class="svc-card reveal delay-4">
         <div class="svc-card-img">
           <div class="svc-card-img-placeholder"><div class="icon-lg">💎</div><span class="upload-hint">Service Image</span></div>
@@ -619,7 +293,6 @@ body {
         </div>
       </div>
     </div>
-
     <div class="services-stats reveal">
       <div class="svc-stat"><h4>5000+</h4><span>Happy Patients</span></div>
       <div class="svc-stat"><h4>10+</h4><span>Years Experience</span></div>
@@ -658,7 +331,7 @@ body {
     <div class="gallery-grid reveal">
       <div class="g-item g-reception">
         <video src="assets/tools video.mp4" autoplay muted loop playsinline onerror="this.style.display='none'"></video>
-          <span>Reception</span>
+        <span>Reception</span>
       </div>
       <div class="g-item g-chair">
         <img src="assets/chair setup.png" alt="Dental Chair" onerror="this.style.display='none'">
@@ -687,7 +360,6 @@ body {
       <div class="g-item g-decor">
         <img src="assets/Dental Implants in Nature.jpg" alt="Decor" onerror="this.style.display='none'">
       </div>
-      
     </div>
   </div>
 </section>
@@ -725,7 +397,7 @@ body {
       </div>
       <p class="t-text">The team at Ever Smile Dental Clinic is amazing! I felt so comfortable and my treatment was completely pain-free. My smile has never looked better!</p>
       <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24"><path d="M12 3v4M9 5h6M8 9h8l-1 7H9L8 9z"/><path d="M10 16v3a2 2 0 0 0 4 0v-3"/></svg></div>
+        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 3v4M9 5h6M8 9h8l-1 7H9L8 9z"/><path d="M10 16v3a2 2 0 0 0 4 0v-3"/></svg></div>
         <div><div class="t-tag-label">Treatment: <strong>Dental Implants</strong></div><div class="t-tag-date">April 2024</div></div>
       </div>
     </div>
@@ -747,7 +419,7 @@ body {
       </div>
       <p class="t-text">I underwent a root canal treatment here and the experience was far better than I expected. Highly professional and caring staff throughout.</p>
       <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24"><path d="M12 2C9 2 6.5 3.5 6.5 6.5c0 1.8.6 3.2 1 4.5.5 1.5.5 3 .5 4.5 0 2 .7 4.5 2 4.5s1.5-2 2-3.5c.5 1.5.7 3.5 2 3.5s2-2.5 2-4.5c0-1.5 0-3 .5-4.5.4-1.3 1-2.7 1-4.5C17.5 3.5 15 2 12 2z"/></svg></div>
+        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 2C9 2 6.5 3.5 6.5 6.5c0 1.8.6 3.2 1 4.5.5 1.5.5 3 .5 4.5 0 2 .7 4.5 2 4.5s1.5-2 2-3.5c.5 1.5.7 3.5 2 3.5s2-2.5 2-4.5c0-1.5 0-3 .5-4.5.4-1.3 1-2.7 1-4.5C17.5 3.5 15 2 12 2z"/></svg></div>
         <div><div class="t-tag-label">Treatment: <strong>Root Canal</strong></div><div class="t-tag-date">March 2024</div></div>
       </div>
     </div>
@@ -769,7 +441,7 @@ body {
       </div>
       <p class="t-text">I chose Ever Smile for smile designing and whitening. The results are incredible! I get compliments on my smile everywhere I go now.</p>
       <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M8.5 14s1.5 2 3.5 2 3.5-2 3.5-2"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="2.5"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="2.5"/></svg></div>
+        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14s1.5 2 3.5 2 3.5-2 3.5-2"/></svg></div>
         <div><div class="t-tag-label">Treatment: <strong>Smile Design</strong></div><div class="t-tag-date">May 2024</div></div>
       </div>
     </div>
@@ -791,7 +463,7 @@ body {
       </div>
       <p class="t-text">Very clean and modern clinic with advanced technology. The doctors explained everything so well. I highly recommend Ever Smile Dental Clinic!</p>
       <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <div><div class="t-tag-label">Treatment: <strong>General Checkup</strong></div><div class="t-tag-date">June 2024</div></div>
       </div>
     </div>
@@ -806,362 +478,53 @@ body {
 
   <div class="t-stats">
     <div class="t-stat">
-      <div class="t-stat-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+      <div class="t-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
       <div><span class="t-stat-num">1200+</span><span class="t-stat-lbl">Happy Patients</span><span class="t-stat-sub">Trusted by thousands</span></div>
     </div>
     <div class="t-stat">
-      <div class="t-stat-icon"><svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+      <div class="t-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
       <div><span class="t-stat-num">5.0</span><span class="t-stat-lbl">Average Rating</span><span class="t-stat-sub">Based on patient reviews</span></div>
     </div>
     <div class="t-stat">
-      <div class="t-stat-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
+      <div class="t-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
       <div><span class="t-stat-num">100%</span><span class="t-stat-lbl">Satisfaction</span><span class="t-stat-sub">Our top priority always</span></div>
     </div>
     <div class="t-stat">
-      <div class="t-stat-icon"><svg viewBox="0 0 24 24"><path d="M8 21h8M12 17v4"/><path d="M7 4H4v4c0 2.2 1.8 4 4 4"/><path d="M17 4h3v4c0 2.2-1.8 4-4 4"/><path d="M12 17c-3.3 0-6-2.7-6-6V4h12v7c0 3.3-2.7 6-6 6z"/></svg></div>
+      <div class="t-stat-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M8 21h8M12 17v4"/><path d="M7 4H4v4c0 2.2 1.8 4 4 4"/><path d="M17 4h3v4c0 2.2-1.8 4-4 4"/><path d="M12 17c-3.3 0-6-2.7-6-6V4h12v7c0 3.3-2.7 6-6 6z"/></svg></div>
       <div><span class="t-stat-num">10+</span><span class="t-stat-lbl">Years Excellence</span><span class="t-stat-sub">In dental care</span></div>
     </div>
   </div>
 </section>
 
 <!-- ════════════ CONTACT ════════════ -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ever Smile – Contact Section</title>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --gold:        #B8933F;
-  --gold-dark:   #9A7A30;
-  --gold-light:  #DFC98A;
-  --gold-pale:   #F3E9D0;
-  --cream:       #F5F0E8;
-  --cream-alt:   #EDE5D5;
-  --brown-deep:  #2C1F0E;
-  --brown-mid:   #6B5A3E;
-  --brown-light: #A8916E;
-  --white:       #fff;
-  --sh-md:       0 4px 18px rgba(0,0,0,0.08);
-  --tr:          all 0.2s ease;
-  --font-display:'Playfair Display', serif;
-  --font-body:   'DM Sans', sans-serif;
-}
-
-body {
-  font-family: var(--font-body);
-  background: var(--cream-alt);
-}
-
-/* ── SECTION ── */
-.contact {
-  padding: 48px 0 44px;
-  background:
-    radial-gradient(ellipse 50% 50% at 0% 50%, rgba(201,169,110,0.09) 0%, transparent 65%),
-    radial-gradient(ellipse 40% 40% at 100% 18%, rgba(139,154,123,0.08) 0%, transparent 65%),
-    var(--cream-alt);
-  position: relative;
-  overflow: hidden;
-}
-
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
-  padding: 0 28px;
-}
-
-/* ── HEADER ── */
-.contact-header {
-  text-align: center;
-  margin-bottom: 24px;
-}
-.contact-header h2 {
-  font-family: var(--font-display);
-  font-size: clamp(20px, 2.6vw, 32px);
-  font-weight: 700;
-  color: var(--brown-deep);
-  margin-bottom: 7px;
-}
-.contact-header h2 span { color: var(--gold); }
-.contact-header p {
-  font-size: 12.5px;
-  color: var(--brown-mid);
-  max-width: 420px;
-  margin: 0 auto;
-  line-height: 1.7;
-}
-
-/* ── BODY GRID — form left, details right ── */
-.contact-body {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 14px;
-  align-items: start;
-}
-
-/* ── CARD ── */
-.contact-card {
-  background: var(--white);
-  border-radius: 14px;
-  padding: 18px 16px 15px;
-  box-shadow: var(--sh-md);
-  border: 1px solid rgba(201,169,110,0.11);
-}
-
-.contact-card-title {
-  font-family: var(--font-display);
-  font-size: 15px;
-  font-weight: 700;
-  color: var(--brown-deep);
-  margin-bottom: 12px;
-}
-
-/* ══════════════════════════════
-   LEFT – BOOKING FORM
-══════════════════════════════ */
-.form-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 7px;
-}
-
-.cf { position: relative; }
-.cf-full { grid-column: 1 / -1; }
-
-.cf-icon {
-  position: absolute;
-  left: 9px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--gold);
-  font-size: 11px;
-  pointer-events: none;
-  z-index: 1;
-}
-.cf-ta .cf-icon { top: 10px; transform: none; }
-
-.cf input,
-.cf select,
-.cf textarea {
-  width: 100%;
-  background: var(--cream);
-  border: 1.5px solid var(--gold-light);
-  border-radius: 7px;
-  padding: 9px 9px 9px 29px;
-  font-family: var(--font-body);
-  font-size: 12px;
-  color: var(--brown-deep);
-  outline: none;
-  transition: border-color 0.2s, background 0.2s;
-  appearance: none;
-  -webkit-appearance: none;
-}
-.cf input::placeholder,
-.cf textarea::placeholder { color: var(--brown-light); }
-.cf input:focus,
-.cf select:focus,
-.cf textarea:focus { border-color: var(--gold); background: var(--white); }
-.cf textarea { resize: none; height: 62px; padding-top: 9px; }
-
-/* select arrow */
-.cf-sel::after {
-  content: '\f078';
-  font-family: 'Font Awesome 6 Free';
-  font-weight: 900;
-  position: absolute;
-  right: 9px; top: 50%;
-  transform: translateY(-50%);
-  color: var(--gold);
-  font-size: 8.5px;
-  pointer-events: none;
-}
-
-/* submit button */
-.btn-book {
-  width: 100%;
-  background: linear-gradient(90deg, var(--gold-dark), var(--gold));
-  color: var(--white);
-  border: none;
-  border-radius: 7px;
-  padding: 11px;
-  font-family: var(--font-body);
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 1.2px;
-  text-transform: uppercase;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  box-shadow: 0 5px 16px rgba(168,128,58,0.28);
-  transition: opacity 0.2s, transform 0.15s;
-  margin-top: 7px;
-}
-.btn-book:hover { opacity: 0.92; transform: translateY(-1px); }
-
-/* footer strip */
-.cf-footer {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin-top: 12px;
-  padding-top: 11px;
-  border-top: 1px solid var(--gold-light);
-}
-.cf-emg-icon {
-  width: 34px; height: 34px;
-  flex-shrink: 0;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--gold-dark), var(--gold));
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--white);
-  font-size: 13px;
-}
-.cf-emg-text { flex: 1; }
-.cf-emg-text h4 { font-size: 11.5px; font-weight: 600; color: var(--brown-deep); margin-bottom: 2px; }
-.cf-emg-text p  { font-size: 10.5px; color: var(--brown-mid); line-height: 1.5; }
-.cf-divider { width: 1px; height: 34px; background: var(--gold-light); flex-shrink: 0; }
-.cf-social { text-align: center; flex-shrink: 0; }
-.cf-social > p { font-size: 9.5px; font-weight: 600; color: var(--brown-deep); margin-bottom: 5px; letter-spacing: 0.4px; }
-.cf-social-icons { display: flex; gap: 5px; }
-.cf-social-icons a {
-  width: 24px; height: 24px;
-  border-radius: 6px;
-  background: rgba(201,169,110,0.14);
-  display: flex; align-items: center; justify-content: center;
-  color: var(--gold-dark);
-  font-size: 10px;
-  transition: var(--tr);
-  text-decoration: none;
-}
-.cf-social-icons a:hover { background: var(--gold); color: var(--white); transform: translateY(-2px); }
-
-/* ══════════════════════════════
-   RIGHT – DETAILS + MAP
-══════════════════════════════ */
-.details-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 8px;
-  margin-bottom: 10px;
-}
-
-.detail-box {
-  background: var(--cream);
-  border: 1px solid var(--gold-light);
-  border-radius: 8px;
-  padding: 9px;
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-}
-.detail-icon {
-  width: 26px; height: 26px;
-  flex-shrink: 0;
-  border-radius: 6px;
-  background: rgba(201,169,110,0.14);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--gold-dark);
-  font-size: 11px;
-}
-.detail-box h4 { font-size: 11px; font-weight: 600; color: var(--brown-deep); margin-bottom: 2px; }
-.detail-box p  { font-size: 10.5px; color: var(--brown-mid); line-height: 1.5; }
-
-/* map */
-.map-wrap {
-  border-radius: 8px;
-  overflow: hidden;
-  height: 130px;
-  border: 1px solid var(--gold-light);
-  position: relative;
-}
-.map-wrap iframe { width: 100%; height: 100%; border: 0; display: block; }
-.map-link {
-  position: absolute;
-  top: 7px; left: 7px;
-  background: var(--white);
-  border-radius: 6px;
-  padding: 4px 9px;
-  font-size: 10.5px;
-  font-weight: 500;
-  color: var(--brown-deep);
-  box-shadow: 0 2px 6px rgba(0,0,0,0.10);
-  display: flex;
-  align-items: center;
-  gap: 5px;
-  text-decoration: none;
-  transition: var(--tr);
-}
-.map-link:hover { background: var(--gold-pale); }
-
-/* ════════ RESPONSIVE ════════ */
-@media (max-width: 767px) {
-  .contact { padding: 36px 0 32px; }
-  .container { padding: 0 16px; }
-
-  .contact-body {
-    grid-template-columns: 1fr;
-    gap: 12px;
-  }
-
-  /* on mobile form stays first naturally (it's first in HTML) */
-  .form-grid { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 420px) {
-  .form-grid { grid-template-columns: 1fr; }
-  .details-grid { grid-template-columns: 1fr; }
-  .contact-header h2 { font-size: 19px; }
-}
-</style>
-</head>
-<body>
-
 <section class="contact" id="contact">
   <div class="container">
-
-    <div class="contact-header">
+    <div class="contact-header reveal">
       <h2>Book Your <span>Appointment</span></h2>
       <p>Reach out to us for any dental concerns. Our team is here to give you the care and smile you deserve.</p>
     </div>
-
     <div class="contact-body">
 
-      <!-- ══ LEFT — FORM ══ -->
-      <div class="contact-card">
+      <!-- LEFT — FORM -->
+      <div class="contact-card reveal delay-1">
         <p class="contact-card-title">Book an Appointment</p>
-
         <div class="form-grid">
-
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-user"></i></span>
             <input id="f_fname" type="text" placeholder="First Name">
           </div>
-
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-user"></i></span>
             <input id="f_lname" type="text" placeholder="Last Name">
           </div>
-
           <div class="cf">
             <span class="cf-icon"><i class="fa-solid fa-phone"></i></span>
             <input id="f_phone" type="tel" placeholder="Phone Number">
           </div>
-
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-envelope"></i></span>
             <input id="f_email" type="email" placeholder="Email Address">
           </div>
-
           <div class="cf cf-sel">
             <span class="cf-icon"><i class="fa-solid fa-tooth"></i></span>
             <select id="f_service">
@@ -1174,24 +537,19 @@ body {
               <option>Cosmetic Dentistry</option>
             </select>
           </div>
-
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-calendar"></i></span>
             <input id="f_date" type="date">
           </div>
-
           <div class="cf cf-full cf-ta">
             <span class="cf-icon"><i class="fa-regular fa-message"></i></span>
             <textarea id="f_notes" placeholder="Any additional notes or concerns…"></textarea>
           </div>
-
         </div>
-
         <button class="btn-book" onclick="sendWhatsApp()">
           <i class="fa-brands fa-whatsapp"></i>
           Confirm Appointment
         </button>
-
         <div class="cf-footer">
           <div class="cf-emg-icon"><i class="fa-solid fa-phone"></i></div>
           <div class="cf-emg-text">
@@ -1203,27 +561,24 @@ body {
             <p>Follow Us</p>
             <div class="cf-social-icons">
               <a href="https://www.instagram.com/drkavipriyao/"><i class="fa-brands fa-instagram"></i></a>
-              <a href="https://in.linkedin.com/in/dr-kavipriya-outtamane-8b8b4a1b0"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="https://in.linkedin.com/in/dr-kavipriya-outtamane-8b8b4a1b0"><i class="fa-brands fa-linkedin-in"></i></a>
               <a href="https://wa.me/919003209903"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- ══ RIGHT — DETAILS + MAP ══ -->
-      <div class="contact-card">
+      <!-- RIGHT — DETAILS + MAP -->
+      <div class="contact-card reveal delay-2">
         <p class="contact-card-title">Contact Details</p>
-
         <div class="details-grid">
-
           <div class="detail-box">
             <div class="detail-icon"><i class="fa-solid fa-location-dot"></i></div>
             <div>
               <h4>Address</h4>
-              <p>40 Badar Sahib St,<br> MG Road Area, Puducherry 605001</p>
+              <p>40 Badar Sahib St,<br>MG Road Area, Puducherry 605001</p>
             </div>
           </div>
-
           <div class="detail-box">
             <div class="detail-icon"><i class="fa-solid fa-phone"></i></div>
             <div>
@@ -1231,7 +586,6 @@ body {
               <p>+91 98765 43210<br>+91 98765 43211</p>
             </div>
           </div>
-
           <div class="detail-box">
             <div class="detail-icon"><i class="fa-regular fa-clock"></i></div>
             <div>
@@ -1239,7 +593,6 @@ body {
               <p>Mon – Sat: 9am – 7pm<br>Sun: 10am – 2pm</p>
             </div>
           </div>
-
           <div class="detail-box">
             <div class="detail-icon"><i class="fa-regular fa-envelope"></i></div>
             <div>
@@ -1247,254 +600,24 @@ body {
               <p>hello@eversmile.in<br>care@eversmile.in</p>
             </div>
           </div>
-
         </div>
-
-        <!-- MAP -->
         <div class="map-wrap">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62636.86940255516!2d78.11455!3d11.66420!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3babf1bb65e83e75%3A0xab1a09b38a2d8f86!2sSalem%2C%20Tamil%20Nadu!5e0!3m2!1sen!2sin!4v1234567890"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3988.137!2d79.8252749!3d11.9273845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5361814903b4f1%3A0x1dc5c26de396c3c8!2sZEN%20%7C%20Outtamane's%20Dental%20Clinic!5e0!3m2!1sen!2sin!4v1234567890"
             allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
           </iframe>
-          <a class="map-link" href="https://www.google.com/maps/dir//ZEN+%7C+Outtamane's+Dental+Clinic,+40,+Badar+Sahib+St,+MG+Road+Area,+Puducherry,+605001/@11.9392231,79.8131935,13z/data=!4m8!4m7!1m0!1m5!1m1!1s0x3a5361814903b4f1:0x1dc5c26de396c3c8!2m2!1d79.8252749!2d11.9273845?entry=ttu&g_ep=EgoyMDI2MDUxMy4wIKXMDSoASAFQAw%3D%3D" target="_blank">
+          <a class="map-link" href="https://www.google.com/maps/dir//ZEN+%7C+Outtamane's+Dental+Clinic,+40,+Badar+Sahib+St,+MG+Road+Area,+Puducherry,+605001" target="_blank">
             <i class="fa-solid fa-diamond-turn-right" style="color:var(--gold)"></i>
             Get Directions
           </a>
         </div>
-
       </div>
 
-    </div><!-- /contact-body -->
+    </div>
   </div>
 </section>
 
-<script>
-function sendWhatsApp() {
-  const firstName = document.getElementById('f_fname').value.trim();
-  const lastName  = document.getElementById('f_lname').value.trim();
-  const phone     = document.getElementById('f_phone').value.trim();
-  const email     = document.getElementById('f_email').value.trim();
-  const service   = document.getElementById('f_service').value;
-  const date      = document.getElementById('f_date').value;
-  const notes     = document.getElementById('f_notes').value.trim();
-
-  if (!firstName) {
-    alert('Please enter your First Name.');
-    document.getElementById('f_fname').focus();
-    return;
-  }
-  if (!phone) {
-    alert('Please enter your Phone Number.');
-    document.getElementById('f_phone').focus();
-    return;
-  }
-
-  const formattedDate = date
-    ? new Date(date).toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' })
-    : 'Not selected';
-
-  const message =
-    `🦷 *New Appointment – Ever Smile Dental Clinic*\n\n` +
-    `👤 *Name:* ${firstName} ${lastName}\n` +
-    `📞 *Phone:* ${phone}\n` +
-    `📧 *Email:* ${email || 'Not provided'}\n` +
-    `🦷 *Service:* ${service || 'Not selected'}\n` +
-    `📅 *Date:* ${formattedDate}\n` +
-    `📝 *Notes:* ${notes || 'None'}\n\n` +
-    `_Sent from Ever Smile website_ 😊`;
-
-  const encoded = encodeURIComponent(message);
-  window.open('https://wa.me/919003209903?text=' + encoded, '_blank');
-}
-</script>
-</body>
-</html>
-
 <!-- ════════════ FOOTER ════════════ -->
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ever Smile – Footer</title>
-<style>
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-:root {
-  --gold: #d4a24c;
-  --gold-mid: #C9A96E;
-  --tr: all 0.2s ease;
-}
-
-body { font-family: 'DM Sans', 'Segoe UI', sans-serif; }
-
-/* ── FOOTER ── */
-.footer {
-  padding: 36px 0 0;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(rgba(14,11,8,0.94), rgba(14,11,8,0.94)),
-              url('assets/footer-bg.jpg') center/cover no-repeat;
-  color: #fff;
-}
-
-/* gold top border */
-.footer::before {
-  content: '';
-  position: absolute; top: 0; left: 0; right: 0; height: 3px;
-  background: linear-gradient(90deg, #B8934A, #C9A96E, #D4B87A, #C9A96E, #B8934A);
-  z-index: 2;
-}
-
-.footer .container {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 28px;
-  position: relative;
-  z-index: 1;
-}
-
-/* ── GRID — 4 columns ── */
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1.4fr 1fr 1fr 1.3fr;
-  gap: 28px;
-  padding-bottom: 24px;
-  border-bottom: 1px solid rgba(255,255,255,0.07);
-}
-
-/* ── COL 1 – Brand ── */
-.footer-logo {
-  display: flex;
-  align-items: center;
-  gap: 9px;
-  margin-bottom: 11px;
-  text-decoration: none;
-}
-.logo-icon {
-  width: 32px; height: 32px;
-  color: var(--gold);
-  flex-shrink: 0;
-}
-.logo-text {
-  display: flex;
-  flex-direction: column;
-}
-.logo-name {
-  font-size: 13px;
-  font-weight: 700;
-  color: #fff;
-  letter-spacing: 0.02em;
-}
-.logo-tagline {
-  font-size: 9px;
-  letter-spacing: 0.18em;
-  color: rgba(255,255,255,0.5);
-  text-transform: uppercase;
-}
-
-.footer-desc {
-  color: rgba(255,255,255,0.6);
-  font-size: 11.5px;
-  line-height: 1.65;
-  max-width: 230px;
-  margin-bottom: 14px;
-}
-
-.footer-social {
-  display: flex;
-  gap: 7px;
-}
-.footer-social a {
-  width: 28px; height: 28px;
-  border-radius: 50%;
-  background: rgba(255,255,255,0.07);
-  display: flex; align-items: center; justify-content: center;
-  color: #fff;
-  transition: var(--tr);
-  text-decoration: none;
-}
-.footer-social a:hover { background: var(--gold); }
-.footer-social svg { width: 12px; height: 12px; }
-
-/* ── COLS 2 & 3 – Links ── */
-.footer-col h4 {
-  font-size: 12px;
-  font-weight: 600;
-  color: #fff;
-  margin-bottom: 12px;
-  letter-spacing: 0.04em;
-}
-.footer-col ul {
-  list-style: none;
-}
-.footer-col ul li {
-  margin-bottom: 7px;
-}
-.footer-col ul li a {
-  color: rgba(255,255,255,0.6);
-  font-size: 11.5px;
-  text-decoration: none;
-  transition: var(--tr);
-}
-.footer-col ul li a:hover { color: var(--gold); }
-
-/* ── COL 4 – Contact ── */
-.footer-contact-list {
-  list-style: none;
-}
-.footer-contact-list li {
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
-  margin-bottom: 10px;
-  color: rgba(255,255,255,0.6);
-  font-size: 11.5px;
-  line-height: 1.55;
-}
-.footer-contact-list svg {
-  width: 13px; height: 13px;
-  color: var(--gold);
-  flex-shrink: 0;
-  margin-top: 2px;
-}
-
-/* ── BOTTOM BAR ── */
-.footer-bottom {
-  padding: 12px 0;
-  text-align: center;
-}
-.footer-bottom p {
-  font-size: 10.5px;
-  color: rgba(255,255,255,0.38);
-}
-
-/* ════════ RESPONSIVE ════════ */
-
-/* Tablet */
-@media (max-width: 900px) {
-  .footer-grid {
-    grid-template-columns: 1fr 1fr;
-    gap: 24px;
-  }
-}
-
-/* Mobile */
-@media (max-width: 540px) {
-  .footer { padding: 28px 0 0; }
-  .footer .container { padding: 0 18px; }
-
-  .footer-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-
-  .footer-desc { max-width: 100%; }
-}
-</style>
-</head>
-<body>
-
 <footer class="footer">
   <div class="container">
     <div class="footer-grid">
@@ -1519,12 +642,13 @@ body { font-family: 'DM Sans', 'Segoe UI', sans-serif; }
           <a href="https://www.instagram.com/drkavipriyao/" aria-label="Instagram">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
           </a>
-          <a href="https://in.linkedin.com/in/dr-kavipriya-outtamane-8b8b4a1b0" aria-label="Twitter">
-<svg viewBox="0 0 24 24" fill="currentColor">
-  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-  <rect x="2" y="9" width="4" height="12"/>
-  <circle cx="4" cy="4" r="2"/>
-</svg>          </a>
+          <a href="https://in.linkedin.com/in/dr-kavipriya-outtamane-8b8b4a1b0" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+              <rect x="2" y="9" width="4" height="12"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
         </div>
       </div>
 
@@ -1578,16 +702,53 @@ body { font-family: 'DM Sans', 'Segoe UI', sans-serif; }
         </ul>
       </div>
 
-    </div><!-- /footer-grid -->
+    </div>
 
     <div class="footer-bottom">
-      <p>© 2024 ZEN | Outtamane's Dental Clinic. All Rights Reserved.</p>
+      <p>© 2025 ZEN | Outtamane's Dental Clinic. All Rights Reserved.</p>
     </div>
   </div>
 </footer>
 
-</body>
-</html>
+<script>
+function sendWhatsApp() {
+  const firstName = document.getElementById('f_fname').value.trim();
+  const lastName  = document.getElementById('f_lname').value.trim();
+  const phone     = document.getElementById('f_phone').value.trim();
+  const email     = document.getElementById('f_email').value.trim();
+  const service   = document.getElementById('f_service').value;
+  const date      = document.getElementById('f_date').value;
+  const notes     = document.getElementById('f_notes').value.trim();
+
+  if (!firstName) {
+    alert('Please enter your First Name.');
+    document.getElementById('f_fname').focus();
+    return;
+  }
+  if (!phone) {
+    alert('Please enter your Phone Number.');
+    document.getElementById('f_phone').focus();
+    return;
+  }
+
+  const formattedDate = date
+    ? new Date(date).toLocaleDateString('en-IN', { day:'numeric', month:'long', year:'numeric' })
+    : 'Not selected';
+
+  const message =
+    `🦷 *New Appointment – ZEN | Outtamane's Dental Clinic*\n\n` +
+    `👤 *Name:* ${firstName} ${lastName}\n` +
+    `📞 *Phone:* ${phone}\n` +
+    `📧 *Email:* ${email || 'Not provided'}\n` +
+    `🦷 *Service:* ${service || 'Not selected'}\n` +
+    `📅 *Date:* ${formattedDate}\n` +
+    `📝 *Notes:* ${notes || 'None'}\n\n` +
+    `_Sent from ZEN | Outtamane's website_ 😊`;
+
+  const encoded = encodeURIComponent(message);
+  window.open('https://wa.me/919003209903?text=' + encoded, '_blank');
+}
+</script>
 
 <script src="script.js"></script>
 </body>
