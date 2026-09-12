@@ -1,8 +1,21 @@
 /* ══════════════════════════════════════════════════
-   EVER SMILE DENTAL CLINIC — script.js
+   ZEN | Outtamane Dental Clinic — script.js
    Navbar · Scroll Reveal · Ticker · WhatsApp
    Premium Background: Canvas Particles + Orbs + Motifs
 ══════════════════════════════════════════════════ */
+
+/* ─── PAGE LOADER — never gets stuck ─── */
+(function() {
+  function hideLoader() {
+    var loader = document.getElementById('pageLoader');
+    if (loader) loader.classList.add('hide');
+  }
+  var maxTimer = setTimeout(hideLoader, 2200);
+  window.addEventListener('load', function() {
+    clearTimeout(maxTimer);
+    setTimeout(hideLoader, 400);
+  });
+})();
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -16,44 +29,45 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   hamburger?.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    hamburger.classList.toggle('open');
+    const isOpen = navMenu.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
     const spans = hamburger.querySelectorAll('span');
-    if (navMenu.classList.contains('open')) {
+    if (isOpen) {
       spans[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
-      spans[1].style.opacity = '0';
+      spans[1].style.opacity   = '0';
       spans[2].style.transform = 'rotate(-45deg) translate(4px, -4px)';
     } else {
       spans[0].style.transform = '';
-      spans[1].style.opacity = '';
+      spans[1].style.opacity   = '';
       spans[2].style.transform = '';
     }
   });
 
-  document.querySelectorAll('.nav-link').forEach(l =>
-    l.addEventListener('click', () => {
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
       navMenu.classList.remove('open');
       hamburger?.classList.remove('open');
       const spans = hamburger?.querySelectorAll('span');
       if (spans) {
         spans[0].style.transform = '';
-        spans[1].style.opacity = '';
+        spans[1].style.opacity   = '';
         spans[2].style.transform = '';
       }
-    })
-  );
+    });
+  });
 
   /* ─── 2. SCROLL REVEAL ─── */
-  const io = new IntersectionObserver(entries => {
+  const revealObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         e.target.classList.add('visible');
-        io.unobserve(e.target);
+        revealObserver.unobserve(e.target);
       }
     });
   }, { threshold: 0.10 });
 
-  document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => io.observe(el));
+  document.querySelectorAll('.reveal, .reveal-left, .reveal-right')
+    .forEach(el => revealObserver.observe(el));
 
   /* ─── 3. TICKER ─── */
   const services = [
@@ -63,13 +77,93 @@ document.addEventListener('DOMContentLoaded', () => {
   ];
   const track = document.getElementById('ticker');
   if (track) {
-    const star = `<svg class="ticker-icon" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>`;
+    const starSVG = `<svg class="ticker-icon" viewBox="0 0 24 24"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 17l-6.2 4.3 2.4-7.4L2 9.4h7.6z"/></svg>`;
     track.innerHTML = [...services, ...services].map(s =>
-      `<span class="ticker-item">${star}${s}<span class="ticker-dot"></span></span>`
+      `<span class="ticker-item">${starSVG}${s}<span class="ticker-dot"></span></span>`
     ).join('');
   }
 
-  /* ─── 4. GALLERY FILTERS ─── */
+  /* ─── 4. SERVICES CAROUSEL ─── */
+  (function initServiceCarousel() {
+    const track    = document.getElementById('svcTrack');
+    const viewport = document.getElementById('svcViewport');
+    const prevBtn  = document.getElementById('svcPrev');
+    const nextBtn  = document.getElementById('svcNext');
+    const dotsWrap = document.getElementById('svcDots');
+    if (!track || !viewport) return;
+
+    const cards      = Array.from(track.children);
+    const totalCards = cards.length;
+    let currentIndex = 0;
+    let autoTimer    = null;
+
+    function visibleCount() {
+      const vw = window.innerWidth;
+      if (vw <= 480)  return 1;
+      if (vw <= 768)  return 2;
+      if (vw <= 1100) return 3;
+      return 4;
+    }
+
+    function maxIndex() { return Math.max(0, totalCards - visibleCount()); }
+
+    function buildDots() {
+      dotsWrap.innerHTML = '';
+      const count = maxIndex() + 1;
+      for (let i = 0; i < count; i++) {
+        const d = document.createElement('button');
+        d.className = 'svc-dot' + (i === 0 ? ' active' : '');
+        d.addEventListener('click', () => goTo(i));
+        dotsWrap.appendChild(d);
+      }
+    }
+
+    function updateDots() {
+      Array.from(dotsWrap.children).forEach((d, i) =>
+        d.classList.toggle('active', i === currentIndex));
+    }
+
+    function goTo(index) {
+      currentIndex = Math.max(0, Math.min(index, maxIndex()));
+      const gap  = 14;
+      const cardW = cards[0] ? cards[0].offsetWidth : 0;
+      track.style.transform = `translateX(-${currentIndex * (cardW + gap)}px)`;
+      updateDots();
+      if (prevBtn) prevBtn.disabled = currentIndex === 0;
+      if (nextBtn) nextBtn.disabled = currentIndex >= maxIndex();
+    }
+
+    function next() { goTo(currentIndex < maxIndex() ? currentIndex + 1 : 0); }
+    function prev() { goTo(currentIndex > 0 ? currentIndex - 1 : maxIndex()); }
+
+    function startAuto() { stopAuto(); autoTimer = setInterval(next, 3000); }
+    function stopAuto()  { if (autoTimer) { clearInterval(autoTimer); autoTimer = null; } }
+
+    viewport.addEventListener('mouseenter', stopAuto);
+    viewport.addEventListener('mouseleave', startAuto);
+
+    let touchStartX = 0;
+    viewport.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; stopAuto(); }, { passive: true });
+    viewport.addEventListener('touchend',   e => {
+      const dx = e.changedTouches[0].clientX - touchStartX;
+      if (Math.abs(dx) > 40) dx < 0 ? next() : prev();
+      startAuto();
+    }, { passive: true });
+
+    if (prevBtn) prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+    if (nextBtn) nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+    window.addEventListener('resize', () => {
+      buildDots();
+      goTo(Math.min(currentIndex, maxIndex()));
+    }, { passive: true });
+
+    buildDots();
+    goTo(0);
+    startAuto();
+  })();
+
+  /* ─── 5. GALLERY FILTERS ─── */
   document.querySelectorAll('.filter-btn').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
@@ -77,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ─── 5. DOT NAV ─── */
+  /* ─── 6. DOT NAV ─── */
   document.querySelectorAll('.dot').forEach(dot => {
     dot.addEventListener('click', () => {
       document.querySelectorAll('.dot').forEach(d => d.classList.remove('active'));
@@ -85,67 +179,57 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  /* ─── 6. ACTIVE NAV ON SCROLL ─── */
+  /* ─── 7. ACTIVE NAV ON SCROLL ─── */
   const sections = document.querySelectorAll('section[id]');
   window.addEventListener('scroll', () => {
-    let cur = '';
-    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 120) cur = s.id; });
-    document.querySelectorAll('.nav-link').forEach(l => {
-      l.classList.toggle('active', l.getAttribute('href') === '#' + cur);
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
     });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.classList.toggle('active', link.getAttribute('href') === '#' + current);
+    });
+  }, { passive: true });
+
+  /* ─── 8. STAGGER CARDS ─── */
+  document.querySelectorAll('.svc-card, .why-pillar, .t-card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.07}s`;
   });
 
-  /* ─── 7. STAGGER CARDS ─── */
-  document.querySelectorAll('.svc-card, .why-card, .t-card').forEach((c, i) => {
-    c.style.transitionDelay = `${i * 0.07}s`;
-  });
-
-  /* ─── 8. COUNTER ANIMATION ─── */
+  /* ─── 9. COUNTER ANIMATION ─── */
   function animateCounter(el) {
     const target = parseInt(el.dataset.target, 10);
     const suffix = el.dataset.suffix || '';
-    const dur = 1600, step = 16;
-    const inc = target / (dur / step);
-    let cur = 0;
-    const t = setInterval(() => {
-      cur += inc;
-      if (cur >= target) { cur = target; clearInterval(t); }
-      el.textContent = Math.floor(cur) + suffix;
+    const duration = 1600, step = 16;
+    const increment = target / (duration / step);
+    let current = 0;
+    const timer = setInterval(() => {
+      current += increment;
+      if (current >= target) {
+        current = target;
+        clearInterval(timer);
+      }
+      el.textContent = Math.floor(current) + suffix;
     }, step);
   }
-  const cio = new IntersectionObserver(entries => {
+  const counterObserver = new IntersectionObserver(entries => {
     entries.forEach(e => {
-      if (e.isIntersecting) { animateCounter(e.target); cio.unobserve(e.target); }
+      if (e.isIntersecting) {
+        animateCounter(e.target);
+        counterObserver.unobserve(e.target);
+      }
     });
   }, { threshold: 0.5 });
-  document.querySelectorAll('[data-target]').forEach(el => cio.observe(el));
+  document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
 
-  /* ─── 9. WHATSAPP BOOKING ─── */
- 
-  /* ─── 10. TOAST NOTIFICATION ─── */
-  function showToast(msg, bg = '#C9A96E') {
-    const t = document.createElement('div');
-    t.style.cssText = `
-      position:fixed; bottom:24px; right:24px; z-index:9999;
-      background:${bg}; color:#fff;
-      padding:11px 18px; border-radius:10px; font-size:13px; font-weight:600;
-      box-shadow:0 4px 18px rgba(0,0,0,0.20);
-      display:flex; align-items:center; gap:8px;
-      transform:translateY(70px); opacity:0;
-      transition:all 0.38s cubic-bezier(.22,1,.36,1);
-      font-family:'DM Sans',sans-serif;
-    `;
-    t.innerHTML = `<i class="fas fa-check-circle"></i> ${msg}`;
-    document.body.appendChild(t);
-    requestAnimationFrame(() => {
-      t.style.transform = 'translateY(0)';
-      t.style.opacity = '1';
-    });
-    setTimeout(() => {
-      t.style.transform = 'translateY(70px)';
-      t.style.opacity = '0';
-      setTimeout(() => t.remove(), 450);
-    }, 3000);
+  /* ─── 10. MOUSE PARALLAX ON HERO BADGE ─── */
+  const badge = document.querySelector('.hero-badge-float');
+  if (badge) {
+    document.addEventListener('mousemove', e => {
+      const mx = (e.clientX / window.innerWidth - 0.5) * 8;
+      const my = (e.clientY / window.innerHeight - 0.5) * 8;
+      badge.style.transform = `translateY(${-8 + my * 0.4}px) rotateX(${my * 0.25}deg) rotateY(${mx * 0.25}deg)`;
+    }, { passive: true });
   }
 
   /* ══════════════════════════════════════════════════════
@@ -202,7 +286,7 @@ document.addEventListener('DOMContentLoaded', () => {
     canvas.height = window.innerHeight;
   }
   resizeCanvas();
-  window.addEventListener('resize', resizeCanvas);
+  window.addEventListener('resize', resizeCanvas, { passive: true });
 
   const PALETTE = [
     'rgba(201,169,110,VAL)',
@@ -282,14 +366,43 @@ document.addEventListener('DOMContentLoaded', () => {
   }
   drawFrame();
 
-  /* D. Mouse parallax on hero badge */
-  const badge = document.querySelector('.hero-badge-float');
-  if (badge) {
-    document.addEventListener('mousemove', e => {
-      const mx = (e.clientX / window.innerWidth - 0.5) * 8;
-      const my = (e.clientY / window.innerHeight - 0.5) * 8;
-      badge.style.transform = `translateY(${-8 + my * 0.4}px) rotateX(${my * 0.25}deg) rotateY(${mx * 0.25}deg)`;
-    });
+}); // end DOMContentLoaded
+
+/* ─── WHATSAPP BOOKING (global — called by onclick) ─── */
+function sendWhatsApp() {
+  const firstName = document.getElementById('f_fname')?.value.trim() || '';
+  const lastName  = document.getElementById('f_lname')?.value.trim() || '';
+  const phone     = document.getElementById('f_phone')?.value.trim() || '';
+  const email     = document.getElementById('f_email')?.value.trim() || '';
+  const service   = document.getElementById('f_service')?.value || '';
+  const date      = document.getElementById('f_date')?.value || '';
+  const notes     = document.getElementById('f_notes')?.value.trim() || '';
+
+  if (!firstName) {
+    alert('Please enter your First Name.');
+    document.getElementById('f_fname')?.focus();
+    return;
+  }
+  if (!phone) {
+    alert('Please enter your Phone Number.');
+    document.getElementById('f_phone')?.focus();
+    return;
   }
 
-});
+  const formattedDate = date
+    ? new Date(date).toLocaleDateString('en-IN', { day: 'numeric', month: 'long', year: 'numeric' })
+    : 'Not selected';
+
+  const message =
+    `🦷 *New Appointment – ZEN | Outtamane Dental Clinic*\n\n` +
+    `👤 *Name:* ${firstName} ${lastName}\n` +
+    `📞 *Phone:* ${phone}\n` +
+    `📧 *Email:* ${email || 'Not provided'}\n` +
+    `🦷 *Service:* ${service || 'Not selected'}\n` +
+    `📅 *Date:* ${formattedDate}\n` +
+    `📝 *Notes:* ${notes || 'None'}\n\n` +
+    `_Sent from ZEN | Outtamane website_ 😊`;
+
+  const encoded = encodeURIComponent(message);
+  window.open('https://wa.me/919486669903?text=' + encoded, '_blank');
+}
