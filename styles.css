@@ -2005,3 +2005,12 @@ body::before {
   font-size: 12px; color: var(--brown-light);
   letter-spacing: 0.12em; text-transform: uppercase;
 }
+@media (max-width: 768px) {
+  .hero {
+    background:
+      linear-gradient(180deg, rgba(243,235,233,0.55) 0%, rgba(243,235,233,0.15) 45%, transparent 70%),
+      url('assets/hero\ \(2\).png') center / cover no-repeat,
+      var(--cream) !important;
+    background-attachment: scroll;
+  }
+}
