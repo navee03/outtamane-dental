@@ -10,8 +10,8 @@
 ══════════════════ */
 :root {
   /* ── Zen Dental brand palette — EXACT colors sampled from the logo ── */
-  --gold:          #FCA4EC;   /* exact logo pink (Zen wordmark / pink tooth) */
-  --gold-dark:     #BD7BB1;   /* derived deeper pink — hover/emphasis only */
+  --gold:          #ffb3f1;   /* exact logo pink (Zen wordmark / pink tooth) */
+  --gold-dark:     #f1a4e3;   /* derived deeper pink — hover/emphasis only */
   --gold-light:    #FDD1F5;   /* derived light pink wash */
   --gold-pale:     #FEF1FC;   /* derived pale pink wash */
   --cream:         #F3EBE9;   /* exact logo ivory (ivory tooth) — main background */
@@ -428,7 +428,7 @@ body::before {
   box-shadow: 0 10px 40px rgba(78,78,78,0.10);
   border: 1px solid rgba(255,255,255,0.5);
 }
-.hero-title .highlight { color: var(--gold); text-shadow: 0 1px 2px rgba(78,78,78,0.10); }
+.hero-title .highlight { color: #C95EB6; text-shadow: 0 1px 2px rgba(78,78,78,0.10); }
 .hero-desc {
   font-size: 12.5px;
   color: var(--brown-mid);
