@@ -406,3 +406,47 @@ function sendWhatsApp() {
   const encoded = encodeURIComponent(message);
   window.open('https://wa.me/919486669903?text=' + encoded, '_blank');
 }
+/* ══════════════════════════════════════════════════════
+   DUAL BOOKING MODAL — In-Clinic vs Teleconsultation
+══════════════════════════════════════════════════════ */
+function openBookingModal(e) {
+  if (e) e.preventDefault();
+  document.getElementById('bookingOverlay')?.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+function closeBookingModal() {
+  document.getElementById('bookingOverlay')?.classList.remove('active');
+  document.body.style.overflow = '';
+}
+document.getElementById('bookingClose')?.addEventListener('click', closeBookingModal);
+document.getElementById('bookingOverlay')?.addEventListener('click', function (e) {
+  if (e.target === this) closeBookingModal();
+});
+document.addEventListener('keydown', function (e) {
+  if (e.key === 'Escape') closeBookingModal();
+});
+
+/* ══════════════════════════════════════════════════════
+   DENTAL TOURISM — SAVINGS CALCULATOR
+══════════════════════════════════════════════════════ */
+(function () {
+  const treatmentSel = document.getElementById('tcTreatment');
+  const countrySel   = document.getElementById('tcCountry');
+  const elIndia   = document.getElementById('tcIndia');
+  const elAbroad  = document.getElementById('tcAbroad');
+  const elSaving  = document.getElementById('tcSaving');
+  if (!treatmentSel || !countrySel) return;
+
+  function calc() {
+    const [india, abroadUSD] = treatmentSel.value.split('|').map(Number);
+    const factor = parseFloat(countrySel.value);
+    const abroad = Math.round(abroadUSD * factor);
+    const savingPct = Math.round(((abroad - india) / abroad) * 100);
+    elIndia.textContent  = '$' + india.toLocaleString();
+    elAbroad.textContent = '$' + abroad.toLocaleString();
+    elSaving.textContent = savingPct + '%';
+  }
+  treatmentSel.addEventListener('change', calc);
+  countrySel.addEventListener('change', calc);
+  calc();
+})();

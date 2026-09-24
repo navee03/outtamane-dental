@@ -44,11 +44,12 @@
       <li><a href="#home"         class="nav-link active">Home</a></li>
       <li><a href="#about"        class="nav-link">About Us</a></li>
       <li><a href="#services"     class="nav-link">Services</a></li>
+      <li><a href="#tourism"      class="nav-link">Dental Tourism</a></li>
       <li><a href="#gallery"      class="nav-link">Gallery</a></li>
       <li><a href="#testimonials" class="nav-link">Reviews</a></li>
       <li><a href="#contact"      class="nav-link">Contact</a></li>
     </ul>
-    <a href="#contact" class="btn btn-primary nav-cta">Book Appointment</a>
+    <a href="#" class="btn btn-primary nav-cta" onclick="openBookingModal(event)">Book Appointment</a>
     <button class="hamburger" id="hamburger" aria-label="Toggle menu">
       <span></span><span></span><span></span>
     </button>
@@ -77,7 +78,7 @@
 
       <div class="hero-buttons reveal delay-4">
         <a href="#services" class="btn btn-primary"><i class="fas fa-tooth"></i> Explore Services</a>
-        <a href="#contact"  class="btn btn-outline"><i class="fas fa-calendar-check"></i> Book Now</a>
+        <a href="#" class="btn btn-outline" onclick="openBookingModal(event)"><i class="fas fa-calendar-check"></i> Book Now</a>
       </div>
     </div>
     <div class="hero-right reveal delay-2">
@@ -203,10 +204,10 @@
 
     <p class="section-label reveal">About Us</p>
     <h2 class="about-section-title reveal delay-1">
-      Compassionate Care<br>for a <em>Healthier Smile</em>
+      Precision Care,<br><em>Naturally Radiant Smiles</em>
     </h2>
     <p class="about-section-sub reveal delay-2">
-      At ZEN | Outtamane's Dental Clinic, we are dedicated to providing exceptional dental care in a comfortable and friendly environment. Our experienced team of specialists uses advanced technology to deliver personalized treatments for every smile.
+      At ZEN | Outtamane's Dental Clinic, we are dedicated to providing exceptional dental care in a comfortable and friendly environment. Our experienced team of specialists combines clinical precision with advanced technology and global sterilization standards to deliver personalized treatments — upholding top-tier clinical standards for every smile.
     </p>
 
     <!-- ── CLINIC VALUES STRIP ── -->
@@ -221,7 +222,7 @@
         <div class="av-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 21C12 21 4 15 4 9a4 4 0 018-1.5A4 4 0 0120 9c0 6-8 12-8 12z"/></svg>
         </div>
-        <span>Patient-Centered Care</span>
+        <span>Personalized Treatment</span>
       </div>
       <div class="about-value-item">
         <div class="av-icon">
@@ -254,18 +255,55 @@
         <div class="dhc-info">
           <div class="dhc-role-tag">Chief Dentist &amp; Owner</div>
           <h3 class="dhc-name">Dr. Kavipriya Outtamane</h3>
+          <div class="dhc-trust-row">
+            <span class="dhc-trust-badge dhc-trust-gov"><i class="fa-solid fa-landmark"></i>Government Recognized Leadership</span>
+            <span class="dhc-trust-badge"><i class="fa-solid fa-graduation-cap"></i>Elite Academic Foundation</span>
+          </div>
           <p class="dhc-specialty">
             BDS – MGPGIDS &nbsp;•&nbsp; MBA (Health Services Management) – Anna University<br>
             MPH (Master of Public Health) – JIPMER &nbsp;•&nbsp; IFETP – ICMR-NIE
           </p>
           <p class="dhc-bio">
-            With over 22 years of dedicated practice in Puducherry, Dr. Kavipriya is the heart and soul of ZEN | Outtamane Dental Clinic. Her patient-first philosophy and mastery across all dental disciplines have earned the trust of over 5,000 families. A passionate clinician and compassionate caregiver, she leads every treatment with warmth, precision, and purpose.
+            With over 22 years of dedicated practice in Puducherry, Dr. Kavipriya is the heart and soul of ZEN | Outtamane Dental Clinic. Her patient-first philosophy, clinical precision, and mastery across all dental disciplines have earned the trust of over 5,000 families. A passionate clinician and compassionate caregiver, she leads every treatment with warmth, precision, and purpose — upholding top-tier clinical standards at every step.
           </p>
           <div class="dhc-tags">
-            <span>Dental Implants</span>
+            <span>Preventive Dentistry</span>
             <span>Cosmetic Dentistry</span>
-            <span>Root Canal</span>
-            <span>Full Mouth Rehab</span>
+            <span>Root Canal Treatment</span>
+            <span>Dental Implants</span>
+            <span>Full Mouth Rehabilitation</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- DR. HARIHARASUDAN — HERO CARD -->
+      <div class="doctor-hero-card">
+        <div class="dhc-photo">
+          <img src="assets/hariharasudhan.jpeg" alt="Dr. Hariharasudan J."
+               onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80'">
+          <div class="dhc-badge">
+            <span class="dhc-badge-num">8+</span>
+            <span class="dhc-badge-txt">Years Experience</span>
+          </div>
+        </div>
+        <div class="dhc-info">
+          <div class="dhc-role-tag">Consultant Orthodontist</div>
+          <h3 class="dhc-name">Dr. Hariharasudan J.</h3>
+          <p class="dhc-specialty">
+            BDS – Government Dental College, Puducherry<br>
+            MDS – Orthodontics &amp; Dentofacial Orthopedics – Tamil Nadu Government Dental College
+          </p>
+          <p class="dhc-bio">
+            Dr. Hariharasudan J. is a distinguished Orthodontist with over 8 years of clinical experience, dedicated to creating healthy, harmonious, and confident smiles through contemporary orthodontic care. Currently serving as an Associate Professor, he brings together strong academic expertise and extensive clinical experience, having successfully managed more than 2,000 orthodontic cases with clinical precision.
+          </p>
+          <p class="dhc-bio">
+            His expertise spans clear aligner therapy, aesthetic and conventional braces, growth modification and interceptive orthodontics, and comprehensive cleft orthodontic care. As a Certified Clear Aligner Provider, he integrates modern digital orthodontic technology with meticulous diagnosis and individualized treatment planning to deliver predictable, aesthetically focused outcomes — reflecting the top-tier clinical standards patients expect. He is a member of the Indian Orthodontic Society, committed to compassionate, ethical, and contemporary orthodontic care for children, adolescents, and adults.
+          </p>
+          <div class="dhc-tags">
+            <span>Clear Aligner Therapy</span>
+            <span>Braces &amp; Aesthetic Orthodontics</span>
+            <span>Growth Modification</span>
+            <span>Cleft Orthodontic Care</span>
           </div>
         </div>
       </div>
@@ -286,22 +324,6 @@
           <div class="spec-info">
             <p class="spec-role">BDS, MDS — Oral &amp; Maxillofacial Surgery</p>
             <p class="spec-desc">Specialist in complex tooth extractions, dental implants, and oral surgical procedures with a gentle, pain-free approach.</p>
-          </div>
-        </div>
-
-        <!-- Dr. Hariharasudan -->
-        <div class="spec-card reveal delay-1">
-          <div class="spec-board-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C9 2 6.5 4.3 6.5 7.6c0 1.9.6 3.7 1.3 5.6l1.5 4.2c.4 1.2 1.1 2.1 1.9 2.1.6 0 .8-1.4 1.1-2.7.2-1 .5-1.7.7-1.7s.5.7.7 1.7c.3 1.3.5 2.7 1.1 2.7.8 0 1.5-.9 1.9-2.1l1.5-4.2c.7-1.9 1.3-3.7 1.3-5.6C17.5 4.3 15 2 12 2z"/>
-            </svg>
-          </div>
-          <span class="spec-spec-tag">Orthodontist</span>
-          <h4 class="spec-name">Dr. Hariharasudan</h4>
-          <span class="spec-divider"></span>
-          <div class="spec-info">
-            <p class="spec-role">BDS, MDS — Orthodontics &amp; Dentofacial Orthopedics</p>
-            <p class="spec-desc">Expert in braces, clear aligners, and bite correction — crafting beautifully aligned smiles for patients of all ages.</p>
           </div>
         </div>
 
@@ -337,7 +359,7 @@
       <h2 class="why-main-title reveal delay-1">
         Pondicherry's Most Advanced<br>Dental Clinic — <em>Built for You</em>
       </h2>
-      <p class="why-main-sub reveal delay-2">22 years of trust. 5,000+ transformed smiles. The only clinic in Pondicherry with an IntraOral Scanner.</p>
+      <p class="why-main-sub reveal delay-2">22 years of trust. 5,000+ transformed smiles. Top-tier clinical standards backed by clinical precision and global sterilization protocols — the only clinic in Pondicherry with an IntraOral Scanner.</p>
     </div>
   </div>
 
@@ -481,8 +503,9 @@
         <h4>Autoclave Sterilization</h4>
 
         <p>
-          International-grade sterilization machines — every single
-          instrument is 100% safe, every single visit, no compromises.
+          We follow global sterilization standards with international-grade
+          autoclave machines — every single instrument is 100% safe,
+          every single visit, no compromises.
         </p>
       </div>
 
@@ -541,6 +564,76 @@
 
   </div>
 </section>
+
+<!-- ════════════ DENTAL TOURISM ════════════ -->
+<section class="tourism-section" id="tourism">
+  <div class="container">
+    <div class="tourism-head">
+      <p class="section-label reveal" style="justify-content:center">Dental Tourism</p>
+      <h2 class="reveal delay-1">World-Class Care, <em>Remarkable Savings</em></h2>
+      <p class="reveal delay-2">International patients travel to ZEN | Outtamane's for the same clinical precision and top-tier clinical standards found in the US, UK, and Europe — combined with a world-class patient experience, global sterilization standards, and a fraction of the cost.</p>
+    </div>
+
+    <div class="tourism-compare reveal delay-2">
+      <div class="tourism-compare-card is-india">
+        <div class="tc-flag">🇮🇳</div>
+        <h5>India (ZEN)</h5>
+        <div class="tc-price">$250–$700</div>
+        <div class="tc-save">Full Mouth Implant</div>
+      </div>
+      <div class="tourism-compare-card">
+        <div class="tc-flag">🇺🇸</div>
+        <h5>USA</h5>
+        <div class="tc-price">$3,000–$5,000</div>
+        <div class="tc-save">up to 85% more</div>
+      </div>
+      <div class="tourism-compare-card">
+        <div class="tc-flag">🇬🇧</div>
+        <h5>UK</h5>
+        <div class="tc-price">$2,200–$4,000</div>
+        <div class="tc-save">up to 80% more</div>
+      </div>
+      <div class="tourism-compare-card">
+        <div class="tc-flag">🇪🇺</div>
+        <h5>Europe</h5>
+        <div class="tc-price">$1,800–$3,500</div>
+        <div class="tc-save">up to 75% more</div>
+      </div>
+    </div>
+
+    <!-- Interactive savings calculator -->
+    <div class="tourism-calc reveal delay-3">
+      <h4><i class="fa-solid fa-calculator" style="color:var(--gold);margin-right:6px"></i>Estimate Your Savings</h4>
+      <div class="tourism-calc-row">
+        <div style="flex:1;min-width:160px;">
+          <label for="tcTreatment">Treatment</label>
+          <select id="tcTreatment">
+            <option value="450|3800">Dental Implant (per tooth)</option>
+            <option value="220|1200">Root Canal Treatment</option>
+            <option value="350|2200">Porcelain Crown</option>
+            <option value="1800|9500">Full Mouth Rehabilitation</option>
+            <option value="900|5200">Invisible / Clear Aligners</option>
+          </select>
+        </div>
+        <div style="flex:1;min-width:160px;">
+          <label for="tcCountry">Comparing To</label>
+          <select id="tcCountry">
+            <option value="1">USA</option>
+            <option value="0.85">UK</option>
+            <option value="0.72">Europe</option>
+          </select>
+        </div>
+      </div>
+      <div class="tourism-result" id="tcResult">
+        <div><span class="tr-label">In India</span><span class="tr-value" id="tcIndia">$450</span></div>
+        <div><span class="tr-label">Back Home</span><span class="tr-value" id="tcAbroad">$3,800</span></div>
+        <div class="tr-save"><span class="tr-label">You Save</span><span class="tr-value" id="tcSaving">88%</span></div>
+      </div>
+      <p style="font-size:9.5px;color:var(--brown-light);text-align:center;margin-top:12px;">Estimates only — final cost depends on individual case assessment. Currency shown in USD.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════ SERVICES ════════════ -->
 <section class="services" id="services">
   <div class="container">
@@ -577,7 +670,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">✨</div></div>
-              <img src="assets/Whitening (2).jpg" alt="Teeth Whitening" onerror="this.style.display='none'">
+              <img src="assets/Whitening 2.jpg" alt="Teeth Whitening" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">✨</div>
             <div class="svc-body">
@@ -689,11 +782,11 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">😁</div></div>
-              <img src="assets/ortho.jpg" alt="Orthodontics" onerror="this.style.display='none'">
+              <img src="assets/align.jpg" alt="Orthodontics" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">😁</div>
             <div class="svc-body">
-              <h3>Orthodontics</h3>
+              <h3>Aligners</h3>
               <p>Correct misaligned teeth and jaws with modern braces and aligner therapy for all ages.</p>
               <a href="#contact" class="svc-arrow"><i class="fas fa-arrow-right"></i></a>
             </div>
@@ -721,7 +814,7 @@
             </div>
             <div class="svc-emoji">🦴</div>
             <div class="svc-body">
-              <h3>Wisdom Teeth Removal</h3>
+              <h3>Wisdom Tooth Removal</h3>
               <p>Safe and pain-free extraction of wisdom teeth with minimal recovery time and maximum comfort.</p>
               <a href="#contact" class="svc-arrow"><i class="fas fa-arrow-right"></i></a>
             </div>
@@ -955,6 +1048,33 @@
   </div>
 </section>
 
+<!-- ════════════ CONTINUITY OF CARE ════════════ -->
+<section class="continuity-section" id="continuity">
+  <div class="container">
+    <p class="section-label reveal" style="justify-content:center">After You Leave</p>
+    <h2 class="why-main-title reveal delay-1" style="text-align:center">Post-Treatment <em>Continuity of Care</em></h2>
+    <p class="why-main-sub reveal delay-2" style="text-align:center;max-width:640px;margin:0 auto;">Your care doesn't end at the airport. We keep every patient's digital records ready to share — with clinical precision — with their local dentist back home.</p>
+
+    <div class="continuity-grid">
+      <div class="continuity-card reveal">
+        <div class="cc-icon"><i class="fa-solid fa-file-waveform"></i></div>
+        <h4>Digital Treatment Summary</h4>
+        <p>A complete digital record of every procedure, material used, and follow-up instruction — generated at checkout, ready to download or email instantly.</p>
+      </div>
+      <div class="continuity-card reveal delay-1">
+        <div class="cc-icon"><i class="fa-solid fa-video"></i></div>
+        <h4>Digital Follow-Up Consults</h4>
+        <p>Post-treatment check-ins via video call so we can monitor healing and answer questions — wherever you are in the world.</p>
+      </div>
+      <div class="continuity-card reveal delay-2">
+        <div class="cc-icon"><i class="fa-solid fa-share-nodes"></i></div>
+        <h4>Shareable With Your Dentist</h4>
+        <p>X-rays, scans, and treatment notes packaged in a shareable format your local dentist can open and continue care from, with zero information gaps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ════════════ CONTACT ════════════ -->
 <section class="contact" id="contact">
   <div class="container">
@@ -1184,6 +1304,34 @@
     </div>
   </div>
 </footer>
+
+<!-- ════════════ GLOBAL WHATSAPP WIDGET ════════════ -->
+<a href="https://wa.me/919486669903?text=Hi%2C%20I%27d%20like%20to%20know%20more%20about%20ZEN%20%7C%20Outtamane%27s%20Dental%20Clinic"
+   class="global-wa-widget" target="_blank" aria-label="Chat with us on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+  <span>Chat With Us</span>
+</a>
+
+<!-- ════════════ DUAL BOOKING MODAL ════════════ -->
+<div class="booking-overlay" id="bookingOverlay">
+  <div class="booking-modal">
+    <button class="booking-close" id="bookingClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
+    <h3>Book Your Appointment</h3>
+    <p class="booking-sub">Choose how you'd like to consult with Dr. Kavipriya &amp; team.</p>
+    <div class="booking-options">
+      <a class="booking-option" href="tel:04132330030">
+        <i class="fa-solid fa-hospital-user"></i>
+        <h4>In-Clinic Visit</h4>
+        <span>Visit us at MG Road, Puducherry. Call to confirm a slot.</span>
+      </a>
+      <a class="booking-option" href="https://wa.me/919486669903?text=Hi%2C%20I%27d%20like%20to%20book%20a%20teleconsultation" target="_blank">
+        <i class="fa-solid fa-video"></i>
+        <h4>Teleconsultation</h4>
+        <span>Video consult from anywhere — ideal for dental tourism patients.</span>
+      </a>
+    </div>
+  </div>
+</div>
 
 <script src="script.js"></script>
 </body>

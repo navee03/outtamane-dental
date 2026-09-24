@@ -1,6 +1,15 @@
 /* ══════════════════════════════════════════════════════
    ZEN | Outtamane Dental Clinic — styles.css
    Single consolidated stylesheet (no duplicates)
+
+   LAYOUT STRATEGY (explicit, desktop-first):
+   • Base rules below (no media query)  → DESKTOP / LAPTOP, landscape-optimized:
+     wide multi-column grids, side-by-side hero, full nav.
+   • "≤1100px" media query              → tablets / small laptops (landscape transition).
+   • "≤768px" and smaller media queries → MOBILE, portrait-optimized:
+     single column stacks, hamburger nav, larger tap targets.
+   Always edit the matching block for the device you're targeting —
+   don't patch mobile issues inside the desktop base rules or vice versa.
 ══════════════════════════════════════════════════════ */
 
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@300;400;500;600&display=swap');
@@ -46,7 +55,7 @@
 
   --section-py: 52px;
   --section-px: 28px;
-  --max-w:      1080px;
+  --max-w:      1220px;
 }
 
 /* ══════════════════
@@ -322,8 +331,8 @@ body::before {
 .logo { display: flex; align-items: center; gap: 8px; flex-shrink: 0; }
 .logo-icon { width: 28px; height: 28px; color: var(--gold); }
 .logo-text { display: flex; flex-direction: column; }
-.logo-name  { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--brown-deep); letter-spacing: 0.8px; line-height: 1; }
-.logo-tagline { font-size: 7px; letter-spacing: 1.8px; color: var(--brown-light); margin-top: 2px; }
+.logo-name  { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--brown-deep); letter-spacing: 0.6px; line-height: 1.15; }
+.logo-tagline { font-size: 7.5px; letter-spacing: 1.8px; color: var(--brown-light); margin-top: 3px; }
 
 .nav-menu { display: flex; align-items: center; gap: 18px; }
 .nav-link {
@@ -429,10 +438,11 @@ body::before {
   border: 1px solid rgba(255,255,255,0.5);
 }
 .hero-title .highlight { color: #F3879E; text-shadow: 0 1px 2px rgba(78,78,78,0.10); }
+.hero-title > span:first-child { display: inline-block; font-size: 0.62em; font-weight: 600; letter-spacing: 0.5px; color: var(--brown-mid); margin-bottom: 4px; }
 .hero-desc {
   font-size: 12.5px;
   color: var(--brown-mid);
-  max-width: 340px;
+  max-width: 480px;
   margin-bottom: 20px;
   line-height: 1.75;
 }
@@ -726,8 +736,10 @@ body::before {
 /* ── SPECIALIST GRID ── */
 .specialist-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: 18px;
+  max-width: 640px;
+  margin: 0 auto;
 }
 
 .spec-card {
@@ -1715,8 +1727,9 @@ body::before {
 
   /* About */
   .doctor-hero-card { grid-template-columns: 220px 1fr; }
-  .dhc-photo { height: 280px; }
-  .specialist-grid { grid-template-columns: repeat(3,1fr); gap: 14px; }
+  .dhc-photo { height: 320px; }
+  .dhc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
+  .specialist-grid { grid-template-columns: repeat(2,1fr); gap: 14px; max-width: 560px; }
 
   /* carousel: show 3 cards */
   .svc-card { flex: 0 0 calc(33.333% - 10px); min-width: calc(33.333% - 10px); }
@@ -1755,7 +1768,6 @@ body::before {
 /* ── About: tablet 600–768px → 2-col specialist grid ── */
 @media (min-width: 600px) and (max-width: 767px) {
   .specialist-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .spec-card:last-child { grid-column: 1 / -1; max-width: 340px; margin: 0 auto; width: 100%; }
 }
 
 /* ════════════════════════════════════════════════
@@ -1810,7 +1822,8 @@ body::before {
 
   /* ── About ── */
   .doctor-hero-card { grid-template-columns: 1fr; }
-  .dhc-photo { height: 220px; }
+  .dhc-photo { height: 300px; }
+  .dhc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
   .dhc-photo::after { background: linear-gradient(to bottom, transparent 60%, var(--navy) 100%); }
   .dhc-info { padding: 22px 18px 24px; }
   .specialist-grid { grid-template-columns: 1fr; gap: 14px; }
@@ -1908,6 +1921,8 @@ body::before {
 
   /* ── About ── */
   .specialist-grid { grid-template-columns: 1fr; }
+  .dhc-photo { height: 260px; }
+  .dhc-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 12%; }
   .dhc-name { font-size: 18px; }
   .dhc-bio  { font-size: 11.5px; }
   .about-section-title { font-size: clamp(18px, 5.5vw, 24px); }
@@ -1981,7 +1996,7 @@ body::before {
    REAL LOGO IMAGE STYLES
 ══════════════════════════════════════ */
 .logo-img-icon {
-  width: 38px; height: 38px;
+  width: 50px; height: 50px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -2053,3 +2068,157 @@ body::before {
     background-attachment: scroll;
   }
 }
+/* ══════════════════════════════════════════════════════
+   NEW — TRUST / ACADEMIC MINI-BADGES (Kavipriya card)
+══════════════════════════════════════════════════════ */
+.dhc-trust-row { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0 14px; }
+.dhc-trust-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 20px;
+  font-size: 9.5px; font-weight: 700; letter-spacing: 0.3px;
+  background: #FFFFFF;
+  border: 1px solid rgba(217,125,156,0.35);
+  color: var(--navy);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+}
+.dhc-trust-badge i { color: var(--gold-dark, var(--gold)); font-size: 10px; }
+.dhc-trust-badge.dhc-trust-gov {
+  background: #FFFFFF;
+  border-color: rgba(46,125,80,0.45);
+}
+.dhc-trust-badge.dhc-trust-gov i { color: #1E7A45; }
+
+/* ══════════════════════════════════════════════════════
+   NEW — GLOBAL WHATSAPP WIDGET (site-wide floating button)
+══════════════════════════════════════════════════════ */
+.global-wa-widget {
+  position: fixed; right: 20px; bottom: 20px; z-index: 9998;
+  display: flex; align-items: center; gap: 10px;
+  background: #25D366; color: #fff;
+  padding: 13px 16px; border-radius: 50px;
+  box-shadow: 0 8px 24px rgba(37,211,102,0.42);
+  text-decoration: none; font-size: 12.5px; font-weight: 700;
+  transition: var(--tr);
+  animation: waPulse 2.4s ease-in-out infinite;
+}
+.global-wa-widget:hover { transform: translateY(-3px) scale(1.03); box-shadow: 0 12px 30px rgba(37,211,102,0.55); }
+.global-wa-widget i { font-size: 20px; }
+.global-wa-widget span { white-space: nowrap; }
+@keyframes waPulse {
+  0%, 100% { box-shadow: 0 8px 24px rgba(37,211,102,0.42); }
+  50%      { box-shadow: 0 8px 30px rgba(37,211,102,0.7); }
+}
+@media (max-width: 480px) {
+  .global-wa-widget span { display: none; }
+  .global-wa-widget { padding: 14px; right: 14px; bottom: 14px; }
+}
+
+/* ══════════════════════════════════════════════════════
+   NEW — DUAL BOOKING MODAL (In-Clinic vs Teleconsultation)
+══════════════════════════════════════════════════════ */
+.booking-overlay {
+  position: fixed; inset: 0; z-index: 99998;
+  background: rgba(43,28,24,0.55);
+  backdrop-filter: blur(4px);
+  display: none; align-items: center; justify-content: center;
+  padding: 20px;
+}
+.booking-overlay.active { display: flex; }
+.booking-modal {
+  background: var(--cream, #fff); border-radius: 22px;
+  max-width: 480px; width: 100%;
+  padding: 34px 28px 28px; position: relative;
+  box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+  animation: bookPop .25s ease;
+}
+@keyframes bookPop { from { transform: scale(0.92); opacity: 0; } to { transform: scale(1); opacity: 1; } }
+.booking-close {
+  position: absolute; top: 14px; right: 14px;
+  width: 30px; height: 30px; border-radius: 50%;
+  background: rgba(78,78,78,0.08); border: none; cursor: pointer;
+  display: flex; align-items: center; justify-content: center; color: var(--brown-mid);
+}
+.booking-modal h3 { font-family: var(--font-display); font-size: 20px; color: var(--brown-deep); margin-bottom: 6px; }
+.booking-modal p.booking-sub { font-size: 12px; color: var(--brown-mid); margin-bottom: 22px; }
+.booking-options { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.booking-option {
+  border: 1.5px solid rgba(217,125,156,0.25); border-radius: 16px;
+  padding: 20px 14px; text-align: center; text-decoration: none;
+  color: var(--brown-deep); transition: var(--tr); cursor: pointer;
+  background: #fff;
+}
+.booking-option:hover { border-color: var(--gold); transform: translateY(-3px); box-shadow: 0 10px 24px rgba(217,125,156,0.18); }
+.booking-option i { font-size: 26px; color: var(--gold); margin-bottom: 10px; display: block; }
+.booking-option h4 { font-size: 13px; font-weight: 700; margin-bottom: 4px; }
+.booking-option span { font-size: 10.5px; color: var(--brown-mid); line-height: 1.4; display: block; }
+@media (max-width: 480px) { .booking-options { grid-template-columns: 1fr; } }
+
+/* ══════════════════════════════════════════════════════
+   NEW — DENTAL TOURISM SECTION
+══════════════════════════════════════════════════════ */
+.tourism-section { background: var(--cream-2, #FBF6F3); padding: var(--section-py) 0; }
+.tourism-head { text-align: center; max-width: 680px; margin: 0 auto 34px; }
+.tourism-head h2 { font-family: var(--font-display); font-size: clamp(22px,3vw,32px); color: var(--brown-deep); margin: 10px 0 12px; }
+.tourism-head h2 em { color: var(--gold); font-style: italic; }
+.tourism-head p { font-size: 12.5px; color: var(--brown-mid); line-height: 1.7; }
+
+.tourism-compare {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+  max-width: var(--max-w); margin: 0 auto 36px; padding: 0 var(--section-px);
+}
+.tourism-compare-card {
+  background: #fff; border-radius: 16px; padding: 18px 14px; text-align: center;
+  border: 1.5px solid rgba(217,125,156,0.15);
+}
+.tourism-compare-card.is-india { border-color: var(--gold); background: linear-gradient(135deg, rgba(243,135,158,0.08), #fff); }
+.tourism-compare-card .tc-flag { font-size: 22px; margin-bottom: 6px; }
+.tourism-compare-card h5 { font-size: 11.5px; font-weight: 700; color: var(--brown-deep); margin-bottom: 8px; text-transform: uppercase; letter-spacing: 0.4px; }
+.tourism-compare-card .tc-price { font-family: var(--font-display); font-size: 20px; font-weight: 700; color: var(--brown-deep); }
+.tourism-compare-card .tc-save { font-size: 9.5px; color: #2E7D50; font-weight: 700; margin-top: 4px; }
+
+.tourism-calc {
+  max-width: 620px; margin: 0 auto; background: #fff; border-radius: 20px;
+  padding: 26px 24px; box-shadow: 0 12px 40px rgba(78,78,78,0.08);
+}
+.tourism-calc h4 { font-size: 14px; color: var(--brown-deep); margin-bottom: 14px; text-align: center; }
+.tourism-calc-row { display: flex; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+.tourism-calc-row label { flex: 1; min-width: 160px; font-size: 10.5px; color: var(--brown-mid); font-weight: 600; display: block; margin-bottom: 6px; }
+.tourism-calc-row select, .tourism-calc-row input {
+  width: 100%; padding: 10px 12px; border-radius: 10px;
+  border: 1.5px solid rgba(217,125,156,0.25); font-size: 12px; font-family: var(--font-body);
+  background: #fff; color: var(--brown-deep);
+}
+.tourism-result {
+  display: grid; grid-template-columns: repeat(3,1fr); gap: 10px; margin-top: 8px;
+  text-align: center; background: rgba(243,135,158,0.06); border-radius: 14px; padding: 16px 10px;
+}
+.tourism-result div span.tr-label { display: block; font-size: 9px; color: var(--brown-mid); text-transform: uppercase; letter-spacing: 0.3px; margin-bottom: 4px; }
+.tourism-result div span.tr-value { display: block; font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--brown-deep); }
+.tourism-result div.tr-save span.tr-value { color: #2E7D50; }
+@media (max-width: 768px) {
+  .tourism-compare { grid-template-columns: repeat(2,1fr); }
+  .tourism-result { grid-template-columns: 1fr; }
+}
+
+/* ══════════════════════════════════════════════════════
+   NEW — POST-TREATMENT CONTINUITY OF CARE
+══════════════════════════════════════════════════════ */
+.continuity-section { padding: var(--section-py) 0; }
+.continuity-grid {
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
+  max-width: var(--max-w); margin: 30px auto 0; padding: 0 var(--section-px);
+}
+.continuity-card {
+  background: #fff; border-radius: 18px; padding: 24px 20px;
+  border: 1px solid rgba(217,125,156,0.15); text-align: left;
+  box-shadow: 0 6px 20px rgba(78,78,78,0.05);
+}
+.continuity-card .cc-icon {
+  width: 44px; height: 44px; border-radius: 12px;
+  background: linear-gradient(135deg, rgba(243,135,158,0.15), rgba(217,125,156,0.08));
+  display: flex; align-items: center; justify-content: center; margin-bottom: 14px;
+  color: var(--gold); font-size: 18px;
+}
+.continuity-card h4 { font-size: 13.5px; color: var(--brown-deep); margin-bottom: 8px; font-weight: 700; }
+.continuity-card p { font-size: 11.5px; color: var(--brown-mid); line-height: 1.6; }
+@media (max-width: 768px) { .continuity-grid { grid-template-columns: 1fr; } }
