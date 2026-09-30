@@ -4,22 +4,72 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   <title>ZEN | Outtamane's Dental Clinic — Strong Roots, Beautiful Smiles</title>
+  <meta name="description" content="Best dental clinic in Pondicherry — 22+ years of excellence, 5000+ happy smiles. IntraOral Scanner, dental implants, root canal, orthodontics &amp; more, plus dental tourism packages.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://naveensivaradjane.github.io/Outtamane-dental-clinic/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="assets/ZEN Insta DP.png">
   <link rel="apple-touch-icon" href="assets/ZEN Insta DP.png">
+  <meta name="theme-color" content="#F3879E">
 
   <!-- Open Graph (WhatsApp / Facebook share preview) -->
   <meta property="og:type"        content="website">
   <meta property="og:title"       content="ZEN | Outtamane's Dental Clinic">
   <meta property="og:description" content="Best Dental Clinic in Pondicherry — 22+ years of excellence, 5000+ happy smiles. Advanced technology including IntraOral Scanner.">
-  <meta property="og:image"       content="assets/ZEN_Logo-02.jpg">
-<meta property="og:url" content="https://naveensivaradjane.github.io/Outtamane-dental-clinic/">
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&amp;family=DM+Sans:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <meta property="og:image"       content="https://naveensivaradjane.github.io/Outtamane-dental-clinic/assets/ZEN_Logo-02.jpg">
+  <meta property="og:url" content="https://naveensivaradjane.github.io/Outtamane-dental-clinic/">
+  <meta property="og:locale" content="en_IN">
+
+  <!-- Twitter / X Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ZEN | Outtamane's Dental Clinic">
+  <meta name="twitter:description" content="Best Dental Clinic in Pondicherry — 22+ years of excellence, 5000+ happy smiles.">
+  <meta name="twitter:image" content="https://naveensivaradjane.github.io/Outtamane-dental-clinic/assets/ZEN_Logo-02.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="preload" as="image" href="assets/hero%20(2).png">
+  <link href="https://fonts.googleapis.com/css2?family=KoHo:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600&amp;family=Montserrat:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured Data: Dentist / LocalBusiness (built only from info already in this page) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Dentist",
+    "name": "ZEN | Outtamane's Dental Clinic",
+    "image": "https://naveensivaradjane.github.io/Outtamane-dental-clinic/assets/ZEN_Logo-02.jpg",
+    "url": "https://naveensivaradjane.github.io/Outtamane-dental-clinic/",
+    "telephone": "+91-413-2330030",
+    "email": "odcdental@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "40 Badar Sahib St, MG Road Area",
+      "addressLocality": "Puducherry",
+      "postalCode": "605001",
+      "addressCountry": "IN"
+    },
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "18:00",
+        "closes": "21:00"
+      }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/dr.kavipriya_dentalexpert",
+      "https://in.linkedin.com/in/dr-kavipriya-outtamane-8b8b4a1b0"
+    ]
+  }
+  </script>
 </head>
 <body>
+
+<a href="#home" class="skip-link">Skip to main content</a>
 
 <!-- ════════════ PAGE LOADER ════════════ -->
 <div class="page-loader" id="pageLoader">
@@ -33,7 +83,7 @@
 <!-- ════════════ NAVBAR ════════════ -->
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a href="#" class="logo">
+    <a href="#home" class="logo">
       <img src="assets/ZEN Insta DP.png" alt="ZEN Logo" class="logo-img-icon">
       <div class="logo-text">
         <span class="logo-name">ZEN | Outtamane's</span>
@@ -50,7 +100,7 @@
       <li><a href="#contact"      class="nav-link">Contact</a></li>
     </ul>
     <a href="#" class="btn btn-primary nav-cta" onclick="openBookingModal(event)">Book Appointment</a>
-    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu" aria-expanded="false" aria-controls="nav-menu">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -58,6 +108,12 @@
 
 <!-- ════════════ HERO ════════════ -->
 <section class="hero" id="home">
+  <!-- soft decorative shapes echoing the logo's overlapping circles -->
+  <div class="hero-deco" aria-hidden="true">
+    <span class="hd-circle hd-pink"></span>
+    <span class="hd-circle hd-blush"></span>
+    <span class="hd-ring"></span>
+  </div>
   <div class="hero-container">
     <div class="hero-content">
       <p class="hero-tagline reveal">Best Dental Clinic in Pondicherry</p>
@@ -83,92 +139,95 @@
     </div>
     <div class="hero-right reveal delay-2">
       <div class="hero-visual-wrap" aria-hidden="true">
-        <svg class="hero-visual" viewBox="0 0 420 420" xmlns="http://www.w3.org/2000/svg">
-          <defs>
-            <radialGradient id="heroGlow" cx="50%" cy="45%" r="60%">
-              <stop offset="0%" stop-color="#FBEBF0" stop-opacity="0.9"/>
-              <stop offset="100%" stop-color="#FBEBF0" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
+        <div class="tooth-stage" aria-hidden="true">
+          <svg class="hero-visual tooth-svg" viewBox="0 0 420 470" xmlns="http://www.w3.org/2000/svg" focusable="false">
+            <defs>
+              <radialGradient id="tGlow" cx="50%" cy="42%" r="58%">
+                <stop offset="0%" stop-color="#FBEBF0" stop-opacity="0.95"/>
+                <stop offset="100%" stop-color="#FBEBF0" stop-opacity="0"/>
+              </radialGradient>
+              <radialGradient id="tEnamel" cx="34%" cy="24%" r="85%">
+                <stop offset="0%"  stop-color="#FFFFFF"/>
+                <stop offset="55%" stop-color="#F7F2F1"/>
+                <stop offset="100%" stop-color="#E4D8D6"/>
+              </radialGradient>
+              <linearGradient id="tSide" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"  stop-color="#D8C9C6" stop-opacity=".55"/>
+                <stop offset="22%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="78%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="100%" stop-color="#D8C9C6" stop-opacity=".6"/>
+              </linearGradient>
+              <linearGradient id="tMetal" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%"   stop-color="#4A4A4C"/>
+                <stop offset="22%"  stop-color="#B9BABD"/>
+                <stop offset="38%"  stop-color="#F6F6F7"/>
+                <stop offset="55%"  stop-color="#9C9DA1"/>
+                <stop offset="80%"  stop-color="#E4E4E6"/>
+                <stop offset="100%" stop-color="#3E3E40"/>
+              </linearGradient>
+              <linearGradient id="tCore" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#2B2B2D"/><stop offset="50%" stop-color="#6C6C70"/><stop offset="100%" stop-color="#26262A"/>
+              </linearGradient>
+              <linearGradient id="tShine" x1="0" y1="0" x2="1" y2="0">
+                <stop offset="0%" stop-color="#fff" stop-opacity="0"/>
+                <stop offset="50%" stop-color="#fff" stop-opacity=".85"/>
+                <stop offset="100%" stop-color="#fff" stop-opacity="0"/>
+              </linearGradient>
+              <path id="tCrownPath" d="M98 132 C90 82 120 46 160 48 C180 49 192 62 210 66 C228 62 240 49 260 48 C300 46 330 82 322 132 C318 168 302 192 292 214 Q290 224 277 224 L143 224 Q130 224 128 214 C118 192 102 168 98 132 Z"/>
+              <clipPath id="tCrownClip"><use href="#tCrownPath"/></clipPath>
+              <clipPath id="tImplantClip"><path d="M162 250 L258 250 L246 424 Q210 446 174 424 Z"/></clipPath>
+            </defs>
 
-          <!-- soft ambient glow -->
-          <circle cx="210" cy="200" r="185" fill="url(#heroGlow)"/>
-          <circle cx="210" cy="200" r="150" fill="none" stroke="#4E4E4E" stroke-opacity="0.08" stroke-width="1"/>
+            <!-- ambient glow + ground shadow -->
+            <circle cx="210" cy="215" r="200" fill="url(#tGlow)"/>
+            <ellipse class="tooth-shadow" cx="210" cy="452" rx="74" ry="9" fill="#4E4E4E" opacity=".16"/>
 
-          <!-- connecting lines to treatment concepts -->
-          <g stroke="#D97D9C" stroke-width="1" stroke-opacity="0.35" stroke-dasharray="3 5">
-            <line x1="210" y1="190" x2="210" y2="55"/>
-            <line x1="210" y1="190" x2="335" y2="130"/>
-            <line x1="210" y1="190" x2="335" y2="290"/>
-            <line x1="210" y1="190" x2="210" y2="365"/>
-            <line x1="210" y1="190" x2="85" y2="290"/>
-            <line x1="210" y1="190" x2="85" y2="130"/>
-          </g>
+            <g class="tooth-body">
+              <!-- implant screw -->
+              <path d="M164 250 L256 250 L245 424 Q210 444 175 424 Z" fill="url(#tCore)"/>
+              <g clip-path="url(#tImplantClip)">
+                  <path d="M163.0 266.0 Q210 277.0 257.0 260.0 L257.0 268.0 Q210 283.0 163.0 274.0 Z" fill="url(#tMetal)"/><path d="M167.0 268.0 Q210 278.0 253.0 262.0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M165.0 281.5 Q210 292.5 255.0 275.5 L255.0 283.5 Q210 298.5 165.0 289.5 Z" fill="url(#tMetal)"/><path d="M169.0 283.5 Q210 293.5 251.0 277.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M167.0 297.0 Q210 308.0 253.0 291.0 L253.0 299.0 Q210 314.0 167.0 305.0 Z" fill="url(#tMetal)"/><path d="M171.0 299.0 Q210 309.0 249.0 293.0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M169.0 312.5 Q210 323.5 251.0 306.5 L251.0 314.5 Q210 329.5 169.0 320.5 Z" fill="url(#tMetal)"/><path d="M173.0 314.5 Q210 324.5 247.0 308.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M171.0 328.0 Q210 339.0 249.0 322.0 L249.0 330.0 Q210 345.0 171.0 336.0 Z" fill="url(#tMetal)"/><path d="M175.0 330.0 Q210 340.0 245.0 324.0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M173.0 343.5 Q210 354.5 247.0 337.5 L247.0 345.5 Q210 360.5 173.0 351.5 Z" fill="url(#tMetal)"/><path d="M177.0 345.5 Q210 355.5 243.0 339.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M175.0 359.0 Q210 370.0 245.0 353.0 L245.0 361.0 Q210 376.0 175.0 367.0 Z" fill="url(#tMetal)"/><path d="M179.0 361.0 Q210 371.0 241.0 355.0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M177.0 374.5 Q210 385.5 243.0 368.5 L243.0 376.5 Q210 391.5 177.0 382.5 Z" fill="url(#tMetal)"/><path d="M181.0 376.5 Q210 386.5 239.0 370.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M179.0 390.0 Q210 401.0 241.0 384.0 L241.0 392.0 Q210 407.0 179.0 398.0 Z" fill="url(#tMetal)"/><path d="M183.0 392.0 Q210 402.0 237.0 386.0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M181.0 405.5 Q210 416.5 239.0 399.5 L239.0 407.5 Q210 422.5 181.0 413.5 Z" fill="url(#tMetal)"/><path d="M185.0 407.5 Q210 417.5 235.0 401.5" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                  <path d="M183.0 421.0 Q210 432.0 237.0 415.0 L237.0 423.0 Q210 438.0 183.0 429.0 Z" fill="url(#tMetal)"/><path d="M187.0 423.0 Q210 433.0 233.0 417.0" fill="none" stroke="#fff" stroke-opacity=".55" stroke-width="1"/>
+                <rect class="tooth-shine tooth-shine-metal" x="-90" y="240" width="60" height="220" fill="url(#tShine)"/>
+              </g>
 
-          <!-- central twin-tooth motif (echoes the ZEN logo) -->
-          <path d="M195 108 C275.6 108 275.6 225.8 195 281.6 C114.4 225.8 114.4 108 195 108 Z" fill="#D97D9C"/>
-          <path d="M225 108 C305.6 108 305.6 225.8 225 281.6 C144.4 225.8 144.4 108 225 108 Z" fill="#F3EBE9" fill-opacity="0.88"/>
+              <!-- abutment collar -->
+              <rect x="146" y="222" width="128" height="16" rx="7" fill="url(#tMetal)"/>
+              <rect x="152" y="236" width="116" height="16" rx="7" fill="url(#tMetal)"/>
+              <path d="M154 226 H266 M160 240 H260" stroke="#fff" stroke-opacity=".6" stroke-width="1.2" stroke-linecap="round"/>
 
-          <!-- satellite: General Dentistry -->
-          <g transform="translate(85,130)">
-            <circle r="28" fill="#FFFFFF" stroke="#D97D9C" stroke-width="1.5"/>
-            <g transform="translate(-10,-10)" stroke="#4E4E4E" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 2 C6 2 3 5 3 9 C3 12 4.5 13.5 5.5 15.5 C6 16.5 6.5 18 7.5 18 C8.3 18 8.3 16 8.7 14.5 C9 13.5 9.5 13 10 13 C10.5 13 11 13.5 11.3 14.5 C11.7 16 11.7 18 12.5 18 C13.5 18 14 16.5 14.5 15.5 C15.5 13.5 17 12 17 9 C17 5 14 2 10 2Z"/>
+              <!-- ceramic crown -->
+              <use href="#tCrownPath" fill="url(#tEnamel)"/>
+              <use href="#tCrownPath" fill="url(#tSide)"/>
+              <g clip-path="url(#tCrownClip)">
+                <path d="M104 150 C150 178 270 178 316 150 L316 230 L104 230 Z" fill="#E9DDDA" opacity=".38"/>
+                <path d="M198 66 C204 96 200 130 190 160" fill="none" stroke="#E1D3D0" stroke-width="3" stroke-linecap="round" opacity=".55"/>
+                <path d="M250 82 C264 110 262 140 252 168" fill="none" stroke="#E7DBD8" stroke-width="2.5" stroke-linecap="round" opacity=".5"/>
+                <ellipse cx="146" cy="96" rx="26" ry="15" fill="#fff" opacity=".9" transform="rotate(-28 146 96)"/>
+                <ellipse cx="128" cy="140" rx="7" ry="22" fill="#fff" opacity=".55" transform="rotate(8 128 140)"/>
+                <rect class="tooth-shine tooth-shine-crown" x="-110" y="30" width="70" height="210" fill="url(#tShine)"/>
+              </g>
+              <use href="#tCrownPath" fill="none" stroke="#D9CBC8" stroke-opacity=".55" stroke-width="1"/>
             </g>
-          </g>
 
-          <!-- satellite: Cosmetic Dentistry -->
-          <g transform="translate(210,55)">
-            <circle r="28" fill="#FFFFFF" stroke="#D97D9C" stroke-width="1.5"/>
-            <g transform="translate(-10,-10)" stroke="#4E4E4E" fill="none" stroke-width="1.2" stroke-linejoin="round">
-              <path d="M10 1 L11.8 7.8 L18.5 10 L11.8 12.2 L10 19 L8.2 12.2 L1.5 10 L8.2 7.8 Z"/>
+            <!-- twinkles -->
+            <g fill="#F3879E">
+              <path class="tw tw1" d="M70 96 l3 9 9 3 -9 3 -3 9 -3 -9 -9 -3 9 -3z"/>
+              <path class="tw tw2" d="M350 178 l2.4 7 7 2.4 -7 2.4 -2.4 7 -2.4 -7 -7 -2.4 7 -2.4z"/>
+              <path class="tw tw3" d="M92 330 l2 6 6 2 -6 2 -2 6 -2 -6 -6 -2 6 -2z"/>
+              <path class="tw tw4" d="M338 350 l2.6 7.5 7.5 2.6 -7.5 2.6 -2.6 7.5 -2.6 -7.5 -7.5 -2.6 7.5 -2.6z"/>
             </g>
-          </g>
-
-          <!-- satellite: Dental Implants -->
-          <g transform="translate(335,130)">
-            <circle r="28" fill="#FFFFFF" stroke="#D97D9C" stroke-width="1.5"/>
-            <g transform="translate(-10,-10)" stroke="#4E4E4E" fill="none" stroke-width="1.3" stroke-linecap="round">
-              <line x1="10" y1="2" x2="10" y2="9"/>
-              <path d="M6 9 h8 l-1.3 2 h-5.4 z" fill="#4E4E4E" stroke="none"/>
-              <line x1="10" y1="11" x2="10" y2="18"/>
-              <line x1="7.5" y1="12.5" x2="10" y2="14"/>
-              <line x1="12.5" y1="14.5" x2="10" y2="16"/>
-              <line x1="7.5" y1="16" x2="10" y2="17.5"/>
-            </g>
-          </g>
-
-          <!-- satellite: Orthodontics -->
-          <g transform="translate(335,290)">
-            <circle r="28" fill="#FFFFFF" stroke="#D97D9C" stroke-width="1.5"/>
-            <g transform="translate(-10,-10)" stroke="#4E4E4E" fill="none" stroke-width="1.3">
-              <rect x="3" y="8" width="4" height="4" rx="1"/>
-              <rect x="8.5" y="6" width="4" height="4" rx="1"/>
-              <rect x="14" y="8" width="4" height="4" rx="1"/>
-              <path d="M5 12 Q10 17 15 12" stroke-linecap="round"/>
-            </g>
-          </g>
-
-          <!-- satellite: Laser Dentistry -->
-          <g transform="translate(210,365)">
-            <circle r="28" fill="#FFFFFF" stroke="#D97D9C" stroke-width="1.5"/>
-            <g transform="translate(-10,-10)" stroke="#4E4E4E" fill="none" stroke-width="1.3" stroke-linecap="round">
-              <line x1="4" y1="4" x2="14" y2="14"/>
-              <circle cx="16" cy="16" r="2" fill="#4E4E4E" stroke="none"/>
-              <line x1="6" y1="2" x2="9" y2="5"/>
-              <line x1="2" y1="6" x2="5" y2="9"/>
-            </g>
-          </g>
-
-          <!-- satellite: Root Canal Treatment -->
-          <g transform="translate(85,290)">
-            <circle r="28" fill="#FFFFFF" stroke="#D97D9C" stroke-width="1.5"/>
-            <g transform="translate(-10,-10)" stroke="#4E4E4E" fill="none" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M10 2 C6.5 2 4 4.5 4 8 C4 10.5 5.5 12 6.5 14.5 L7.5 18 L9 13 L11 13 L12.5 18 L13.5 14.5 C14.5 12 16 10.5 16 8 C16 4.5 13.5 2 10 2 Z"/>
-              <line x1="10" y1="6" x2="10" y2="12" stroke-dasharray="1.5 1.5"/>
-            </g>
-          </g>
-        </svg>
+          </svg>
+        </div>
         <div class="hero-badge-float">
           <div class="hero-badge-num">22+</div>
           <div class="hero-badge-txt">Years of Excellence</div>
@@ -178,18 +237,19 @@
       <div class="social-sidebar">
         <span class="social-text">FOLLOW US</span>
         <div class="social-links">
-          <a href="#" aria-label="Facebook">
+          <a href="#" class="social-placeholder" aria-label="Facebook (link coming soon)" aria-disabled="true" title="Facebook page coming soon" rel="nofollow">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <a href="https://www.instagram.com/dr.kavipriya_dentalexpert?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" aria-label="Instagram" target="_blank">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="18" cy="6" r="1" fill="currentColor"/></svg>
           </a>
-          <a href="https://wa.me/919003209903" aria-label="WhatsApp" target="_blank">
+          <a href="https://wa.me/919486669903" aria-label="WhatsApp" target="_blank">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/></svg>
           </a>
         </div>
       </div>
     </div>
+
   </div>
 </section>
 
@@ -245,7 +305,7 @@
       <!-- DR. KAVIPRIYA — HERO CARD -->
       <div class="doctor-hero-card">
         <div class="dhc-photo">
-          <img src="assets/mam pic 2.png" alt="Dr. Kavipriya Outtamane"
+          <img src="assets/mam pic 2.png" loading="lazy" decoding="async" alt="Dr. Kavipriya Outtamane"
                onerror="this.src='https://images.unsplash.com/photo-1651008376811-b90baee60c1f?w=500&q=80'">
           <div class="dhc-badge">
             <span class="dhc-badge-num">22+</span>
@@ -279,7 +339,7 @@
       <!-- DR. HARIHARASUDAN — HERO CARD -->
       <div class="doctor-hero-card">
         <div class="dhc-photo">
-          <img src="assets/hariharasudhan.jpeg" alt="Dr. Hariharasudan J."
+          <img src="assets/hariharasudhan.jpeg" loading="lazy" decoding="async" alt="Dr. Hariharasudan J."
                onerror="this.src='https://images.unsplash.com/photo-1622253692010-333f2da6031d?w=500&q=80'">
           <div class="dhc-badge">
             <span class="dhc-badge-num">8+</span>
@@ -308,41 +368,52 @@
         </div>
       </div>
 
-      <!-- SPECIALISTS GRID -->
-      <div class="specialist-grid">
-
-        <!-- Dr. Madhivanan -->
-        <div class="spec-card reveal">
-          <div class="spec-board-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C9 2 6.5 4.3 6.5 7.6c0 1.9.6 3.7 1.3 5.6l1.5 4.2c.4 1.2 1.1 2.1 1.9 2.1.6 0 .8-1.4 1.1-2.7.2-1 .5-1.7.7-1.7s.5.7.7 1.7c.3 1.3.5 2.7 1.1 2.7.8 0 1.5-.9 1.9-2.1l1.5-4.2c.7-1.9 1.3-3.7 1.3-5.6C17.5 4.3 15 2 12 2z"/>
-            </svg>
-          </div>
-          <span class="spec-spec-tag">Oral Surgeon</span>
-          <h4 class="spec-name">Dr. Madhivanan</h4>
-          <span class="spec-divider"></span>
-          <div class="spec-info">
-            <p class="spec-role">BDS, MDS — Oral &amp; Maxillofacial Surgery</p>
-            <p class="spec-desc">Specialist in complex tooth extractions, dental implants, and oral surgical procedures with a gentle, pain-free approach.</p>
+      <!-- DR. MADHIVANAN — HERO CARD (add photo at assets/madhivanan.jpg) -->
+      <div class="doctor-hero-card">
+        <div class="dhc-photo">
+          <img src="assets/madhivanan.jpg" loading="lazy" decoding="async" alt="Dr. Madhivanan"
+               onerror="this.remove();this.parentNode.classList.add('no-photo')">
+          <div class="dhc-placeholder" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+          <div class="dhc-badge">
+            <span class="dhc-badge-num">MDS</span>
+            <span class="dhc-badge-txt">Oral Surgeon</span>
           </div>
         </div>
-
-        <!-- Dr. Selvabalaji -->
-        <div class="spec-card reveal delay-2">
-          <div class="spec-board-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M12 2C9 2 6.5 4.3 6.5 7.6c0 1.9.6 3.7 1.3 5.6l1.5 4.2c.4 1.2 1.1 2.1 1.9 2.1.6 0 .8-1.4 1.1-2.7.2-1 .5-1.7.7-1.7s.5.7.7 1.7c.3 1.3.5 2.7 1.1 2.7.8 0 1.5-.9 1.9-2.1l1.5-4.2c.7-1.9 1.3-3.7 1.3-5.6C17.5 4.3 15 2 12 2z"/>
-            </svg>
-          </div>
-          <span class="spec-spec-tag">Pedodontist</span>
-          <h4 class="spec-name">Dr. Selvabalaji</h4>
-          <span class="spec-divider"></span>
-          <div class="spec-info">
-            <p class="spec-role">BDS, MDS — Pediatric Dentistry</p>
-            <p class="spec-desc">A warm and caring specialist dedicated to children's oral health — making every young patient's dental visit fun and fear-free.</p>
+        <div class="dhc-info">
+          <div class="dhc-role-tag">Oral &amp; Maxillofacial Surgeon</div>
+          <h3 class="dhc-name">Dr. Madhivanan</h3>
+          <p class="dhc-specialty">BDS, MDS — Oral &amp; Maxillofacial Surgery</p>
+          <p class="dhc-bio">Specialist in complex tooth extractions, dental implants, and oral surgical procedures with a gentle, pain-free approach.</p>
+          <div class="dhc-tags">
+            <span>Complex Extractions</span>
+            <span>Dental Implants</span>
+            <span>Oral Surgery</span>
           </div>
         </div>
+      </div>
 
+      <!-- DR. SELVABALAJI — HERO CARD (add photo at assets/selvabalaji.jpg) -->
+      <div class="doctor-hero-card">
+        <div class="dhc-photo">
+          <img src="assets/selvabalaji.jpg" loading="lazy" decoding="async" alt="Dr. Selvabalaji"
+               onerror="this.remove();this.parentNode.classList.add('no-photo')">
+          <div class="dhc-placeholder" aria-hidden="true"><i class="fa-solid fa-user-doctor"></i></div>
+          <div class="dhc-badge">
+            <span class="dhc-badge-num">MDS</span>
+            <span class="dhc-badge-txt">Pedodontist</span>
+          </div>
+        </div>
+        <div class="dhc-info">
+          <div class="dhc-role-tag">Pedodontist</div>
+          <h3 class="dhc-name">Dr. Selvabalaji</h3>
+          <p class="dhc-specialty">BDS, MDS — Pediatric Dentistry</p>
+          <p class="dhc-bio">A warm and caring specialist dedicated to children's oral health — making every young patient's dental visit fun and fear-free.</p>
+          <div class="dhc-tags">
+            <span>Child Dentistry</span>
+            <span>Preventive Care</span>
+            <span>Fear-Free Visits</span>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -404,7 +475,7 @@
 
     <div class="wts-hero-img">
 
-      <img src="assets/intra-oral.jpg"
+      <img src="assets/intra-oral.jpg" loading="lazy" decoding="async"
         alt="IntraOral Scanner">
 
       <div class="wts-hero-gradient"></div>
@@ -462,7 +533,7 @@
 
       <div class="wts-tech-img">
 
-        <img src="assets/Custom-Clear-Teeth.jpg"
+        <img src="assets/Custom-Clear-Teeth.jpg" loading="lazy" decoding="async"
           alt="Clear Aligners">
 
         <div class="wts-tech-overlay"></div>
@@ -488,7 +559,7 @@
 
       <div class="wts-tech-img">
 
-        <img src="assets/autoclave.jpg"
+        <img src="assets/autoclave.jpg" loading="lazy" decoding="async"
           alt="Autoclave Sterilization"
          >
 
@@ -656,7 +727,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🦷</div></div>
-              <img src="assets/implant.jpg" alt="Dental Implants" onerror="this.style.display='none'">
+              <img src="assets/implant.jpg" loading="lazy" decoding="async" alt="Dental Implants" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🦷</div>
             <div class="svc-body">
@@ -670,7 +741,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">✨</div></div>
-              <img src="assets/Whitening 2.jpg" alt="Teeth Whitening" onerror="this.style.display='none'">
+              <img src="assets/Whitening 2.jpg" loading="lazy" decoding="async" alt="Teeth Whitening" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">✨</div>
             <div class="svc-body">
@@ -684,7 +755,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🛡️</div></div>
-              <img src="assets/crown.jpg" alt="Dental Crowns" onerror="this.style.display='none'">
+              <img src="assets/crown.jpg" loading="lazy" decoding="async" alt="Dental Crowns" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🛡️</div>
             <div class="svc-body">
@@ -698,7 +769,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">💎</div></div>
-              <img src="assets/smile.jpg" alt="Smile Design" onerror="this.style.display='none'">
+              <img src="assets/smile.jpg" loading="lazy" decoding="async" alt="Smile Design" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">💎</div>
             <div class="svc-body">
@@ -712,7 +783,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🔬</div></div>
-              <img src="assets/root canal.jpg" alt="Root Canal" onerror="this.style.display='none'">
+              <img src="assets/root canal.jpg" loading="lazy" decoding="async" alt="Root Canal" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🔬</div>
             <div class="svc-body">
@@ -726,7 +797,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🦴</div></div>
-              <img src="assets/Braces.jpg" alt="Braces & Aligners" onerror="this.style.display='none'">
+              <img src="assets/Braces.jpg" loading="lazy" decoding="async" alt="Braces & Aligners" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🦴</div>
             <div class="svc-body">
@@ -740,7 +811,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">📸</div></div>
-              <img src="assets/x ray.jpg" alt="Dental X-Ray" onerror="this.style.display='none'">
+              <img src="assets/x ray.jpg" loading="lazy" decoding="async" alt="Dental X-Ray" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">📸</div>
             <div class="svc-body">
@@ -754,7 +825,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🧹</div></div>
-              <img src="assets/tools.jpg" alt="Teeth Cleaning" onerror="this.style.display='none'">
+              <img src="assets/tools.jpg" loading="lazy" decoding="async" alt="Teeth Cleaning" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🧹</div>
             <div class="svc-body">
@@ -768,7 +839,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🦷</div></div>
-              <img src="assets/Dentures.jpg" alt="Dentures" onerror="this.style.display='none'">
+              <img src="assets/Dentures.jpg" loading="lazy" decoding="async" alt="Dentures" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🦷</div>
             <div class="svc-body">
@@ -782,7 +853,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">😁</div></div>
-              <img src="assets/align.jpg" alt="Orthodontics" onerror="this.style.display='none'">
+              <img src="assets/align.jpg" loading="lazy" decoding="async" alt="Orthodontics" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">😁</div>
             <div class="svc-body">
@@ -796,7 +867,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🌿</div></div>
-              <img src="assets/gums.jpg" alt="Gum Treatment" onerror="this.style.display='none'">
+              <img src="assets/gums.jpg" loading="lazy" decoding="async" alt="Gum Treatment" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🌿</div>
             <div class="svc-body">
@@ -810,7 +881,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">🦴</div></div>
-              <img src="assets/wisdom.jpg" alt="Wisdom Teeth" onerror="this.style.display='none'">
+              <img src="assets/wisdom.jpg" loading="lazy" decoding="async" alt="Wisdom Teeth" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">🦴</div>
             <div class="svc-body">
@@ -824,7 +895,7 @@
           <div class="svc-card">
             <div class="svc-card-img">
               <div class="svc-card-img-placeholder"><div class="icon-lg">👶</div></div>
-              <img src="assets/kids.jpg" alt="Kids Care" onerror="this.style.display='none'">
+              <img src="assets/kids.jpg" loading="lazy" decoding="async" alt="Kids Care" onerror="this.style.display='none'">
             </div>
             <div class="svc-emoji">👶</div>
             <div class="svc-body">
@@ -862,56 +933,76 @@
       <h2>Moments That Reflect <span>Our Care</span></h2>
       <p>A glimpse into our clinic, our team, and the beautiful smiles we create every day.</p>
     </div>
-    <div class="gallery-filters reveal">
-      <button class="filter-btn active">
+    <div class="gallery-filters reveal" role="group" aria-label="Filter gallery by category">
+      <button class="filter-btn active" data-filter="all" aria-pressed="true">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
         All Images
       </button>
-      <button class="filter-btn">
+      <button class="filter-btn" data-filter="clinic" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 4l9 5.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><path d="M9 21V12h6v9"/></svg>
         Clinic
       </button>
-      <button class="filter-btn">
+      <button class="filter-btn" data-filter="patients" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
         Patient Smiles
       </button>
-      <button class="filter-btn">
+      <button class="filter-btn" data-filter="team" aria-pressed="false">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3"/><path d="M3 20v-1a6 6 0 0 1 12 0v1"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/><path d="M21 20v-1a4 4 0 0 0-3-3.85"/></svg>
         Our Team
       </button>
     </div>
-    <div class="gallery-grid reveal">
-      <div class="g-item g-reception">
-        <video src="assets/mam video.mp4" autoplay muted loop playsinline onerror="this.style.display='none'"></video>
+    <div class="gallery-grid reveal" id="galleryGrid">
+      <div class="g-item g-reception" data-category="clinic">
+        <video src="assets/mam video.mp4" autoplay muted loop playsinline preload="metadata" aria-label="Clinic reception" onerror="this.style.display='none'"></video>
         <span>Reception</span>
       </div>
-      <div class="g-item g-chair">
-        <img src="assets/chair setup.png" alt="Dental Chair" onerror="this.style.display='none'">
+      <div class="g-item g-chair" data-category="clinic">
+        <img src="assets/chair setup.png" alt="Dental treatment chair at ZEN Outtamane's Dental Clinic" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Dental Chair</span>
       </div>
-      <div class="g-item g-treatment">
-        <img src="assets/mam working.png" alt="Treatment" onerror="this.style.display='none'">
+      <div class="g-item g-treatment" data-category="clinic">
+        <img src="assets/mam working.png" alt="Dr. Kavipriya treating a patient" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Treatment</span>
       </div>
-      <div class="g-item g-lounge">
-        <img src="assets/clinic interior.png" alt="Lounge" onerror="this.style.display='none'">
+      <div class="g-item g-lounge" data-category="clinic">
+        <img src="assets/clinic interior.png" alt="Clinic waiting lounge interior" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Lounge</span>
       </div>
-      <div class="g-item g-tools">
-        <img src="assets/tools.jpg" alt="Tools" onerror="this.style.display='none'">
+      <div class="g-item g-tools" data-category="clinic">
+        <img src="assets/tools.jpg" alt="Sterilised dental instruments" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Tools</span>
       </div>
-      <div class="g-item g-patient">
-        <img src="assets/x ray.jpg" alt="Patient" onerror="this.style.display='none'">
+      <div class="g-item g-patient" data-category="patients">
+        <img src="assets/x ray.jpg" alt="Patient digital X-ray" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Patient Care</span>
       </div>
-      <div class="g-item g-team">
-        <img src="assets/Braces.jpg" alt="Team" onerror="this.style.display='none'">
+      <div class="g-item g-team" data-category="team">
+        <img src="assets/Braces.jpg" alt="Clinical team at work" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Our Team</span>
       </div>
-      <div class="g-item g-bathroom">
-        <img src="assets/root canal.jpg" alt="Clinic" onerror="this.style.display='none'">
+      <div class="g-item g-bathroom" data-category="clinic">
+        <img src="assets/root canal.jpg" alt="Clinic treatment room" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Clinic</span>
       </div>
-      <div class="g-item g-autoclave">
-        <img src="assets/Glass Bead Sterilizers – Sterilizer Equipment Manufacturer and Suppliers.jpg" alt="Sterilisation" onerror="this.style.display='none'">
+      <div class="g-item g-autoclave" data-category="clinic">
+        <img src="assets/Glass Bead Sterilizers – Sterilizer Equipment Manufacturer and Suppliers.jpg" alt="Autoclave sterilisation equipment" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Sterilisation</span>
       </div>
-      <div class="g-item g-decor">
-        <img src="assets/Dental Implants in Nature.jpg" alt="Decor" onerror="this.style.display='none'">
+      <div class="g-item g-decor" data-category="clinic">
+        <img src="assets/Dental Implants in Nature.jpg" alt="Clinic decor detail" loading="lazy" decoding="async" onerror="this.style.display='none'">
+        <span>Decor</span>
       </div>
+    </div>
+
+    <!-- Gallery Lightbox -->
+    <div class="lightbox" id="galleryLightbox" role="dialog" aria-modal="true" aria-label="Image viewer" hidden>
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close image viewer"><i class="fa-solid fa-xmark"></i></button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous image"><i class="fa-solid fa-chevron-left"></i></button>
+      <div class="lightbox-stage">
+        <img id="lightboxImg" src="" alt="">
+        <p class="lightbox-caption" id="lightboxCaption"></p>
+      </div>
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next image"><i class="fa-solid fa-chevron-right"></i></button>
     </div>
   </div>
 </section>
@@ -931,101 +1022,14 @@
     </div>
   </div>
 
-  <div class="t-grid">
-    <div class="t-card reveal delay-1">
-      <div class="t-quote-deco">"</div>
-      <div class="t-author">
-        <div class="t-avatar-fb">P</div>
-        <div>
-          <div class="t-name">Priya R.</div>
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
-        </div>
-      </div>
-      <p class="t-text">The team at ZEN | Outtamane Dental Clinic is amazing! I felt so comfortable and my treatment was completely pain-free. My smile has never looked better!</p>
-      <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v4M9 5h6M8 9h8l-1 7H9L8 9z"/><path d="M10 16v3a2 2 0 0 0 4 0v-3"/></svg></div>
-        <div><div class="t-tag-label">Treatment: <strong>Dental Implants</strong></div><div class="t-tag-date">April 2024</div></div>
-      </div>
-    </div>
+  <div class="t-grid" id="tGrid"></div>
 
-    <div class="t-card reveal delay-2">
-      <div class="t-quote-deco">"</div>
-      <div class="t-author">
-        <div class="t-avatar-fb">A</div>
-        <div>
-          <div class="t-name">Arun K.</div>
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
-        </div>
-      </div>
-      <p class="t-text">I underwent a root canal treatment here and the experience was far better than I expected. Highly professional and caring staff throughout.</p>
-      <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C9 2 6.5 3.5 6.5 6.5c0 1.8.6 3.2 1 4.5.5 1.5.5 3 .5 4.5 0 2 .7 4.5 2 4.5s1.5-2 2-3.5c.5 1.5.7 3.5 2 3.5s2-2.5 2-4.5c0-1.5 0-3 .5-4.5.4-1.3 1-2.7 1-4.5C17.5 3.5 15 2 12 2z"/></svg></div>
-        <div><div class="t-tag-label">Treatment: <strong>Root Canal</strong></div><div class="t-tag-date">March 2024</div></div>
-      </div>
-    </div>
+  <div class="t-dots" id="tDots"></div>
 
-    <div class="t-card reveal delay-3">
-      <div class="t-quote-deco">"</div>
-      <div class="t-author">
-        <div class="t-avatar-fb">S</div>
-        <div>
-          <div class="t-name">Sneha M.</div>
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
-        </div>
-      </div>
-      <p class="t-text">I chose ZEN | Outtamane for smile designing and whitening. The results are incredible! I get compliments on my smile everywhere I go now.</p>
-      <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.5 14s1.5 2 3.5 2 3.5-2 3.5-2"/><line x1="9" y1="9" x2="9.01" y2="9" stroke-width="2.5"/><line x1="15" y1="9" x2="15.01" y2="9" stroke-width="2.5"/></svg></div>
-        <div><div class="t-tag-label">Treatment: <strong>Smile Design</strong></div><div class="t-tag-date">May 2024</div></div>
-      </div>
-    </div>
-
-    <div class="t-card reveal delay-4">
-      <div class="t-quote-deco">"</div>
-      <div class="t-author">
-        <div class="t-avatar-fb">V</div>
-        <div>
-          <div class="t-name">Vikram S.</div>
-          <div class="stars">
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
-          </div>
-        </div>
-      </div>
-      <p class="t-text">Very clean and modern clinic with advanced technology. The doctors explained everything so well. I highly recommend ZEN | Outtamane Dental Clinic!</p>
-      <div class="t-tag">
-        <div class="t-tag-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><path d="M9 12l2 2 4-4"/></svg></div>
-        <div><div class="t-tag-label">Treatment: <strong>General Checkup</strong></div><div class="t-tag-date">June 2024</div></div>
-      </div>
-    </div>
-  </div>
-
-  <div class="t-dots">
-    <button class="dot active"></button>
-    <button class="dot"></button>
-    <button class="dot"></button>
-    <button class="dot"></button>
+  <div class="t-all-wrap">
+    <a class="btn btn-outline t-all-btn" href="https://www.google.com/maps/place/ZEN+%7C+Outtamane's+Dental+Clinic/@11.927363,79.8252689,17z/data=!4m8!3m7!1s0x3a5361814903b4f1:0x1dc5c26de396c3c8!8m2!3d11.927363!4d79.8252689!9m1!1b1!16s%2Fg%2F11fr3l_n4c?entry=ttu" target="_blank" rel="noopener noreferrer">
+      <i class="fa-brands fa-google" aria-hidden="true"></i> Read all reviews on Google
+    </a>
   </div>
 
   <div class="t-stats">
@@ -1090,26 +1094,34 @@
       <!-- LEFT — FORM -->
       <div class="contact-card contact-form-card reveal delay-1">
         <p class="contact-card-title"><i class="fas fa-calendar-check" style="color:var(--gold);margin-right:7px"></i>Book an Appointment</p>
-        <div class="form-grid">
+        <form id="appointmentForm" class="form-grid" novalidate>
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-user"></i></span>
-            <input id="f_fname" type="text" placeholder="First Name">
+            <label class="sr-only" for="f_fname">First Name</label>
+            <input id="f_fname" name="fname" type="text" placeholder="First Name" required autocomplete="given-name" aria-describedby="err_fname">
+            <span class="cf-error" id="err_fname" role="alert"></span>
           </div>
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-user"></i></span>
-            <input id="f_lname" type="text" placeholder="Last Name">
+            <label class="sr-only" for="f_lname">Last Name</label>
+            <input id="f_lname" name="lname" type="text" placeholder="Last Name" autocomplete="family-name">
           </div>
           <div class="cf">
             <span class="cf-icon"><i class="fa-solid fa-phone"></i></span>
-            <input id="f_phone" type="tel" placeholder="Phone Number">
+            <label class="sr-only" for="f_phone">Phone Number</label>
+            <input id="f_phone" name="phone" type="tel" placeholder="Phone Number" required inputmode="tel" autocomplete="tel" aria-describedby="err_phone">
+            <span class="cf-error" id="err_phone" role="alert"></span>
           </div>
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-envelope"></i></span>
-            <input id="f_email" type="email" placeholder="Email Address">
+            <label class="sr-only" for="f_email">Email Address</label>
+            <input id="f_email" name="email" type="email" placeholder="Email Address" autocomplete="email" aria-describedby="err_email">
+            <span class="cf-error" id="err_email" role="alert"></span>
           </div>
           <div class="cf cf-sel">
             <span class="cf-icon"><i class="fa-solid fa-tooth"></i></span>
-            <select id="f_service">
+            <label class="sr-only" for="f_service">Select Service</label>
+            <select id="f_service" name="service" required aria-describedby="err_service">
               <option value="" disabled selected>Select Service</option>
               <option>General Checkup</option>
               <option>Teeth Whitening</option>
@@ -1125,20 +1137,25 @@
               <option>Kids Dental Care</option>
               <option>Emergency Care</option>
             </select>
+            <span class="cf-error" id="err_service" role="alert"></span>
           </div>
           <div class="cf">
             <span class="cf-icon"><i class="fa-regular fa-calendar"></i></span>
-            <input id="f_date" type="date">
+            <label class="sr-only" for="f_date">Preferred Date</label>
+            <input id="f_date" name="date" type="date" aria-describedby="err_date">
+            <span class="cf-error" id="err_date" role="alert"></span>
           </div>
           <div class="cf cf-full cf-ta">
             <span class="cf-icon"><i class="fa-regular fa-message"></i></span>
-            <textarea id="f_notes" placeholder="Any additional notes or concerns…"></textarea>
+            <label class="sr-only" for="f_notes">Additional notes or concerns</label>
+            <textarea id="f_notes" name="notes" placeholder="Any additional notes or concerns…"></textarea>
           </div>
-        </div>
-        <button class="btn-book" onclick="sendWhatsApp()">
-          <i class="fa-brands fa-whatsapp"></i>
-          Confirm via WhatsApp
-        </button>
+          <button class="btn-book cf-full" type="submit" id="btnBook">
+            <i class="fa-brands fa-whatsapp"></i>
+            <span class="btn-book-label">Confirm via WhatsApp</span>
+          </button>
+          <p class="cf-success" id="cfSuccess" role="status" hidden><i class="fa-solid fa-circle-check"></i> Redirecting you to WhatsApp to confirm your appointment…</p>
+        </form>
         <div class="cf-footer">
           <div class="cf-emg-icon"><i class="fa-solid fa-phone"></i></div>
           <div class="cf-emg-text">
@@ -1151,7 +1168,7 @@
             <div class="cf-social-icons">
               <a href="https://www.instagram.com/drkavipriyao/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
               <a href="https://in.linkedin.com/in/dr-kavipriya-outtamane-8b8b4a1b0" target="_blank"><i class="fa-brands fa-linkedin-in"></i></a>
-              <a href="https://wa.me/919003209903" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+              <a href="https://wa.me/919486669903" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
             </div>
           </div>
         </div>
@@ -1234,7 +1251,7 @@
         </a>
         <p class="footer-desc">A new beginning for your smile with advanced dental implants and compassionate dental care in Puducherry.</p>
         <div class="footer-social">
-          <a href="#" aria-label="Facebook">
+          <a href="#" class="social-placeholder" aria-label="Facebook (link coming soon)" aria-disabled="true" title="Facebook page coming soon" rel="nofollow">
             <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>
           </a>
           <a href="https://www.instagram.com/dr.kavipriya_dentalexpert?utm_source=ig_web_button_share_sheet&stkn=ZDNlZDc0MzIxNw==" aria-label="Instagram" target="_blank">
@@ -1320,9 +1337,9 @@
 
 <!-- ════════════ DUAL BOOKING MODAL ════════════ -->
 <div class="booking-overlay" id="bookingOverlay">
-  <div class="booking-modal">
-    <button class="booking-close" id="bookingClose" aria-label="Close"><i class="fa-solid fa-xmark"></i></button>
-    <h3>Book Your Appointment</h3>
+  <div class="booking-modal" role="dialog" aria-modal="true" aria-labelledby="bookingModalTitle">
+    <button class="booking-close" id="bookingClose" aria-label="Close booking dialog"><i class="fa-solid fa-xmark"></i></button>
+    <h3 id="bookingModalTitle">Book Your Appointment</h3>
     <p class="booking-sub">Choose how you'd like to consult with Dr. Kavipriya &amp; team.</p>
     <div class="booking-options">
       <a class="booking-option" href="tel:04132330030">
