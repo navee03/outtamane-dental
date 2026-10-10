@@ -169,16 +169,18 @@ document.addEventListener('DOMContentLoaded', () => {
   initGalleryAndLightbox();
 
 
-  /* ─── REVIEWS (edit this list: paste real Google reviews here) ─── */
+  /* ─── REVIEWS (edit this list: paste real Google reviews here) ───
+     Single source of truth: feeds the Reviews section AND the hero review card. */
+  // { name, stars (1-5), text, treatment, date }  — add as many as you like
+  const REVIEWS = [
+    { name: "Priya R.",  stars: 5, text: "The team at ZEN | Outtamane Dental Clinic is amazing! I felt so comfortable and my treatment was completely pain-free. My smile has never looked better!", treatment: "Dental Implants", date: "April 2024" },
+    { name: "Arun K.",   stars: 5, text: "I underwent a root canal treatment here and the experience was far better than I expected. Highly professional and caring staff throughout.", treatment: "Root Canal", date: "March 2024" },
+    { name: "Sneha M.",  stars: 5, text: "I chose ZEN | Outtamane for smile designing and whitening. The results are incredible! I get compliments on my smile everywhere I go now.", treatment: "Smile Design", date: "May 2024" },
+    { name: "Vikram S.", stars: 5, text: "Very clean and modern clinic with advanced technology. The doctors explained everything so well. I highly recommend ZEN | Outtamane Dental Clinic!", treatment: "General Checkup", date: "June 2024" }
+  ];
+
   (function () {
     const REVIEW_URL = "https://www.google.com/maps/place/ZEN+%7C+Outtamane's+Dental+Clinic/@11.927363,79.8252689,17z/data=!4m8!3m7!1s0x3a5361814903b4f1:0x1dc5c26de396c3c8!8m2!3d11.927363!4d79.8252689!9m1!1b1!16s%2Fg%2F11fr3l_n4c?entry=ttu";
-    // { name, stars (1-5), text, treatment, date }  — add as many as you like
-    const REVIEWS = [
-      { name: "Priya R.",  stars: 5, text: "The team at ZEN | Outtamane Dental Clinic is amazing! I felt so comfortable and my treatment was completely pain-free. My smile has never looked better!", treatment: "Dental Implants", date: "April 2024" },
-      { name: "Arun K.",   stars: 5, text: "I underwent a root canal treatment here and the experience was far better than I expected. Highly professional and caring staff throughout.", treatment: "Root Canal", date: "March 2024" },
-      { name: "Sneha M.",  stars: 5, text: "I chose ZEN | Outtamane for smile designing and whitening. The results are incredible! I get compliments on my smile everywhere I go now.", treatment: "Smile Design", date: "May 2024" },
-      { name: "Vikram S.", stars: 5, text: "Very clean and modern clinic with advanced technology. The doctors explained everything so well. I highly recommend ZEN | Outtamane Dental Clinic!", treatment: "General Checkup", date: "June 2024" }
-    ];
     const grid = document.getElementById('tGrid'), dots = document.getElementById('tDots');
     if (!grid || !dots) return;
     const star = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>';
@@ -204,6 +206,91 @@ document.addEventListener('DOMContentLoaded', () => {
     render();
     let t; window.addEventListener('resize', () => { clearTimeout(t); t = setTimeout(render, 150); });
     setInterval(() => { const pages = Math.ceil(REVIEWS.length / perPage()); if (pages > 1) { page = (page + 1) % pages; render(); } }, 7000);
+  })();
+
+  /* ─── HERO: rotating headline, pause rules, highlight count-up ─── */
+  (function initHero() {
+    const hero = document.getElementById('home');
+    if (!hero) return;
+    const reduceMQ = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    /* Headline rotator: fade + slight vertical slide. Only the active line is exposed to assistive tech (no live region, so nothing is announced on every change). */
+    const container = document.getElementById('heroRotator');
+    const items = container ? Array.from(container.querySelectorAll('.hero-rotator__item')) : [];
+    let idx = Math.max(0, items.findIndex(n => n.classList.contains('is-active')));
+    let timer = null;
+    function step() {
+      const prev = items[idx];
+      idx = (idx + 1) % items.length;
+      const next = items[idx];
+      prev.classList.remove('is-active');
+      prev.classList.add('is-leaving');
+      prev.setAttribute('aria-hidden', 'true');
+      setTimeout(() => prev.classList.remove('is-leaving'), 340);
+      next.classList.add('is-active');
+      next.removeAttribute('aria-hidden');
+    }
+    const start = () => { if (!timer && items.length > 1) timer = setInterval(step, 4600); };
+    const stop  = () => { clearInterval(timer); timer = null; };
+
+    /* Run only when: motion allowed, tab visible, hero on screen, and the visitor isn't hovering/focusing the hero content */
+    let inView = true, holding = false;
+    function sync() {
+      const run = !reduceMQ.matches && !document.hidden && inView && !holding;
+      run ? start() : stop();
+      hero.classList.toggle('is-paused', document.hidden || !inView);   // pauses the scroll-cue animation
+    }
+    document.addEventListener('visibilitychange', sync);
+    if (reduceMQ.addEventListener) reduceMQ.addEventListener('change', sync); else if (reduceMQ.addListener) reduceMQ.addListener(sync);
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(entries => { inView = entries[0].isIntersecting; sync(); }, { threshold: 0.05 }).observe(hero);
+    }
+    const card = hero.querySelector('.hero-content');
+    if (card) {
+      card.addEventListener('pointerenter', e => { if (e.pointerType === 'mouse') { holding = true; sync(); } });
+      card.addEventListener('pointerleave', () => { holding = false; sync(); });
+      card.addEventListener('focusin',  () => { holding = true;  sync(); });
+      card.addEventListener('focusout', () => { holding = false; sync(); });
+    }
+    sync();
+
+    /* Highlights bar: numbers count up once, after the bar has faded in (final value is already in the HTML for no-JS / reduced motion) */
+    const nums = Array.from(hero.querySelectorAll('[data-hero-count]'));
+    if (nums.length && !reduceMQ.matches) {
+      nums.forEach(n => { n.textContent = '0'; });
+      setTimeout(() => {
+        const t0 = performance.now(), dur = 1400;
+        (function frame(t) {
+          const p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+          nums.forEach(n => { n.textContent = Math.round(+n.dataset.heroCount * e); });
+          if (p < 1) requestAnimationFrame(frame);
+        })(t0);
+      }, 1500);
+    }
+  })();
+
+  const yr=document.getElementById('yr'); if(yr) yr.textContent=new Date().getFullYear();
+
+  /* ─── SCROLL PROGRESS + CARD TILT ─── */
+  (function(){
+    const bar=document.createElement('div'); bar.className='scroll-progress'; document.body.appendChild(bar);
+    window.addEventListener('scroll',()=>{ const h=document.documentElement; bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; },{passive:true});
+    if(matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover:hover)').matches) return;
+    document.addEventListener('pointermove',e=>{
+      const c=e.target.closest && e.target.closest('.svc-card,.t-card,.dc-card,.why-pillar');
+      document.querySelectorAll('.tilting').forEach(x=>{ if(x!==c){ x.classList.remove('tilting'); x.style.transform=''; } });
+      if(!c) return; const r=c.getBoundingClientRect();
+      const px=(e.clientX-r.left)/r.width-.5, py=(e.clientY-r.top)/r.height-.5;
+      c.classList.add('tilting'); c.style.transform=`perspective(900px) rotateX(${-py*5}deg) rotateY(${px*6}deg) translateY(-4px)`;
+    });
+  })();
+
+  /* ─── DOCTOR CARDS: staggered entrance + counters ─── */
+  (function(){
+    const cards=document.querySelectorAll('.dc-card'); if(!cards.length) return;
+    const count=el=>{ const to=+el.dataset.count; let n=0; const step=Math.max(1,Math.ceil(to/30)); const t=setInterval(()=>{ n=Math.min(to,n+step); el.textContent=n; if(n>=to) clearInterval(t); },40); };
+    const io=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); e.target.querySelectorAll('[data-count]').forEach(count); io.unobserve(e.target);} }),{threshold:.2});
+    cards.forEach(c=>io.observe(c));
   })();
 
   /* ─── 6. DOT NAV ─── */
@@ -256,16 +343,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }, { threshold: 0.5 });
   document.querySelectorAll('[data-target]').forEach(el => counterObserver.observe(el));
-
-  /* ─── 10. MOUSE PARALLAX ON HERO BADGE ─── */
-  const badge = document.querySelector('.hero-badge-float');
-  if (badge) {
-    document.addEventListener('mousemove', e => {
-      const mx = (e.clientX / window.innerWidth - 0.5) * 8;
-      const my = (e.clientY / window.innerHeight - 0.5) * 8;
-      badge.style.transform = `translateY(${-8 + my * 0.4}px) rotateX(${my * 0.25}deg) rotateY(${mx * 0.25}deg)`;
-    }, { passive: true });
-  }
 
   /* ══════════════════════════════════════════════════════
      PREMIUM BACKGROUND SYSTEM
@@ -753,31 +830,4 @@ function initGalleryAndLightbox() {
   treatmentSel.addEventListener('change', calc);
   countrySel.addEventListener('change', calc);
   calc();
-})();
-
-/* ══════════════════════════════════════════════════════
-   HERO — subtle pointer parallax (desktop only, motion-safe)
-══════════════════════════════════════════════════════ */
-(function () {
-  const hero = document.getElementById('home');
-  if (!hero) return;
-  const canHover = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const reduce   = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  if (!canHover || reduce) return;
-
-  let raf = null;
-  hero.addEventListener('pointermove', function (e) {
-    if (raf) return;
-    raf = requestAnimationFrame(function () {
-      const r = hero.getBoundingClientRect();
-      // -0.5 … 0.5 relative to hero centre
-      hero.style.setProperty('--mx', ((e.clientX - r.left) / r.width  - 0.5).toFixed(3));
-      hero.style.setProperty('--my', ((e.clientY - r.top)  / r.height - 0.5).toFixed(3));
-      raf = null;
-    });
-  });
-  hero.addEventListener('pointerleave', function () {
-    hero.style.setProperty('--mx', 0);
-    hero.style.setProperty('--my', 0);
-  });
 })();
