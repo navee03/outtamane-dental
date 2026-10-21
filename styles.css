@@ -639,7 +639,8 @@ body::before {
 ══════════════════ */
 .about-section {
   padding: 60px 0 64px;
-  background: var(--cream);
+  /* lighter, softly graduated background so the hero → About transition feels continuous */
+  background: linear-gradient(to bottom, #F7F1EF 0%, #FBF7F6 28%, #FDFAF9 100%);
   overflow: hidden;
 }
 
