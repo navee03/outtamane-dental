@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', () => {
   /* ─── SCROLL PROGRESS + CARD TILT ─── */
   (function(){
     const bar=document.createElement('div'); bar.className='scroll-progress'; document.body.appendChild(bar);
-    window.addEventListener('scroll',()=>{ const h=document.documentElement; bar.style.width=(h.scrollTop/(h.scrollHeight-h.clientHeight)*100)+'%'; },{passive:true});
+    window.addEventListener('scroll',()=>{ const h=document.documentElement; const m=h.scrollHeight-h.clientHeight; bar.style.width=(m>0?h.scrollTop/m*100:0)+'%'; },{passive:true});
     if(matchMedia('(prefers-reduced-motion: reduce)').matches || !matchMedia('(hover:hover)').matches) return;
     document.addEventListener('pointermove',e=>{
       const c=e.target.closest && e.target.closest('.svc-card,.t-card,.dc-card,.why-pillar');
@@ -588,6 +588,8 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
+    const waWin = window.open('', '_blank');   // opened inside the click so mobile popup blockers allow it
+    if (waWin) waWin.opener = null;
     submitting = true;
     if (btn) btn.disabled = true;
     if (btnLabel) btnLabel.textContent = 'Preparing your request…';
@@ -619,7 +621,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Small delay so the "processing" state is visible before WhatsApp opens.
     setTimeout(() => {
-      window.open('https://wa.me/919486669903?text=' + encoded, '_blank');
+      openWhatsApp(encoded, waWin);
       if (successMsg) successMsg.hidden = false;
       if (btnLabel) btnLabel.textContent = 'Confirm via WhatsApp';
       if (btn) btn.disabled = false;
@@ -630,6 +632,11 @@ document.addEventListener('DOMContentLoaded', () => {
 /* ══════════════════════════════════════════════════════
    DUAL BOOKING MODAL — In-Clinic vs Teleconsultation
 ══════════════════════════════════════════════════════ */
+function openWhatsApp(encoded, win) {
+  const url = 'https://wa.me/919486669903?text=' + encoded;
+  if (win && !win.closed) win.location.href = url; else window.location.href = url;
+}
+
 let lastFocusedBeforeModal = null;
 
 function getFocusable(container) {
@@ -830,4 +837,72 @@ function initGalleryAndLightbox() {
   treatmentSel.addEventListener('change', calc);
   countrySel.addEventListener('change', calc);
   calc();
+})();
+
+/* ══════════════════════════════════════════════════════
+   WELCOME POPUP — opens over the hero on load; X / No thanks / Esc / outside-click close it
+   Shown once per browser session (set SHOW_EVERY_VISIT = true to show on every page load).
+══════════════════════════════════════════════════════ */
+(function () {
+  const SHOW_EVERY_VISIT = false;
+  const overlay = document.getElementById('welcomeOverlay');
+  const form    = document.getElementById('welcomeForm');
+  if (!overlay || !form) return;
+  const nameEl = document.getElementById('wl_name'), phoneEl = document.getElementById('wl_phone'), svcEl = document.getElementById('wl_service');
+  const errName = document.getElementById('wl_err_name'), errPhone = document.getElementById('wl_err_phone');
+  const KEY = 'zenWelcomeSeen';
+  let lastFocus = null;
+
+  function open() {
+    if (document.getElementById('bookingOverlay')?.classList.contains('active')) return;
+    lastFocus = document.activeElement;
+    overlay.classList.add('active'); overlay.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    nameEl.focus({ preventScroll: true });
+  }
+  function close() {
+    if (!overlay.classList.contains('active')) return;
+    overlay.classList.remove('active'); overlay.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    try { sessionStorage.setItem(KEY, '1'); } catch (e) {}
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
+  }
+  document.getElementById('wlClose').addEventListener('click', close);
+  document.getElementById('wlSkip').addEventListener('click', close);
+  overlay.addEventListener('click', e => { if (e.target === overlay) close(); });
+  document.addEventListener('keydown', e => {
+    if (!overlay.classList.contains('active')) return;
+    if (e.key === 'Escape') { close(); return; }
+    if (e.key === 'Tab') {
+      const f = getFocusable(overlay.querySelector('.wl-modal'));
+      if (!f.length) return;
+      const first = f[0], last = f[f.length - 1];
+      if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+  const PHONE_RE = /^[0-9+\-\s()]{7,16}$/;
+  nameEl.addEventListener('input',  () => { errName.textContent = ''; nameEl.classList.remove('wl-bad'); });
+  phoneEl.addEventListener('input', () => { errPhone.textContent = ''; phoneEl.classList.remove('wl-bad'); });
+
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+    const name = nameEl.value.trim(), phone = phoneEl.value.trim();
+    let ok = true;
+    if (!name) { errName.textContent = 'Please enter your name.'; nameEl.classList.add('wl-bad'); ok = false; }
+    if (!phone) { errPhone.textContent = 'Please enter your mobile number.'; phoneEl.classList.add('wl-bad'); ok = false; }
+    else if (!PHONE_RE.test(phone)) { errPhone.textContent = 'Enter a valid mobile number.'; phoneEl.classList.add('wl-bad'); ok = false; }
+    if (!ok) { (!name ? nameEl : phoneEl).focus(); return; }
+    const win = window.open('', '_blank'); if (win) win.opener = null;
+    const msg = '🦷 *New Enquiry – ZEN | Outtamane Dental Clinic*\n\n👤 *Name:* ' + name + '\n📞 *Phone:* ' + phone + '\n🦷 *Service:* ' + svcEl.value + '\n\n_Sent from the website popup_';
+    openWhatsApp(encodeURIComponent(msg), win);
+    form.reset(); close();
+  });
+
+  let seen = false;
+  try { seen = !SHOW_EVERY_VISIT && sessionStorage.getItem(KEY) === '1'; } catch (e) {}
+  if (seen) return;
+  function schedule() { setTimeout(() => { if (window.scrollY < window.innerHeight) open(); }, 900); }
+  if (document.readyState === 'complete') schedule(); else window.addEventListener('load', schedule);
 })();

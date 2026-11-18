@@ -2479,3 +2479,97 @@ section > .container, .container { width: min(100% - 2*var(--section-px), 1240px
 @media (max-width: 1180px) { .dc-grid { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .dc-grid { grid-template-columns: 1fr; gap: 18px; } .dc-photo { aspect-ratio: 4 / 3.6; } }
 @media (prefers-reduced-motion: reduce) { .dc-card { opacity: 1; transform: none; transition: none; } .dc-chip, .dc-card::before { animation: none; } }
+
+/* ══════════ DOCTOR FEEDBACK ROUND ══════════ */
+/* Hero artwork crop (chair + monitor stay in view) */
+.hero { --hero-pos-desktop: 50% 50%; --hero-pos-mobile: 50% 50%; }
+/* Smaller headline, no overflow */
+.hero-title { font-size: clamp(22px, 2.5vw, 32px); line-height: 1.15; overflow-wrap: anywhere; }
+.hero-title > span:first-child { font-size: clamp(10.5px, 1.1vw, 12.5px); letter-spacing: .14em; font-weight: 700; }
+.hero-title__lead, .hero-title .highlight { font-weight: 700; }
+/* Bold, darker hero text on a calmer glass card */
+.hero-content { background: rgba(255,253,251,.5); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); }
+.hero-desc { font-weight: 700; color: #3a3a3a; }
+.hero-services, .hero-visual { background: rgba(255,253,251,.55); }
+.hero-services a, .hv-card > div > span, .hero-scroll { font-weight: 700; color: #3a3a3a; }
+
+/* ══ Welcome popup ══ */
+.wl-overlay { position: fixed; inset: 0; z-index: 99999; display: none; align-items: center; justify-content: center; padding: 16px; background: rgba(43,28,24,.5); -webkit-backdrop-filter: blur(3px); backdrop-filter: blur(3px); }
+.wl-overlay.active { display: flex; }
+.wl-modal { position: relative; width: 100%; max-width: 400px; max-height: calc(100vh - 32px); max-height: calc(100dvh - 32px); overflow: auto; background: #fff; border-radius: 20px; padding: 28px 24px 20px; text-align: center; box-shadow: 0 24px 60px rgba(0,0,0,.3); animation: bookPop .3s ease; }
+.wl-close { position: absolute; top: 10px; right: 10px; width: 36px; height: 36px; border-radius: 50%; border: 0; background: #4E4E4E; color: #fff; cursor: pointer; display: grid; place-items: center; }
+.wl-close:hover { background: var(--gold-dark); }
+.wl-modal > img { height: 48px; width: auto; max-width: 80%; margin: 0 auto 12px; display: block; }
+.wl-modal h3 { font-family: var(--font-display); font-size: 22px; font-weight: 700; color: var(--brown-deep); margin-bottom: 4px; }
+.wl-sub { font-size: 14px; font-weight: 600; color: var(--brown-mid); margin-bottom: 16px; }
+.wl-field { margin-bottom: 12px; text-align: left; }
+.wl-field input, .wl-field select { width: 100%; padding: 12px 14px; font: 600 16px var(--font-body); color: #3a3a3a; background: #fff; border: 1.5px solid #E6D6D3; border-radius: 10px; }
+.wl-field input:focus, .wl-field select:focus { outline: 2px solid var(--gold); outline-offset: 1px; border-color: var(--gold); }
+.wl-field input.wl-bad { border-color: #B3261E; }
+.wl-err { display: block; color: #B3261E; font-size: 12.5px; font-weight: 600; margin-top: 4px; }
+.wl-err:empty { display: none; }
+.wl-submit { width: 100%; min-height: 48px; display: flex; align-items: center; justify-content: center; gap: 8px; border: 0; border-radius: 999px; background: #4E4E4E; color: #fff; font: 700 15px var(--font-body); cursor: pointer; transition: background .2s; }
+.wl-submit:hover { background: var(--gold-dark); }
+.wl-skip { margin-top: 12px; padding: 8px; background: none; border: 0; font: 600 13.5px var(--font-body); color: var(--brown-mid); text-decoration: underline; cursor: pointer; }
+
+/* Desktop: stack card + service strip + highlights on the left so the chair, monitor and instrument tray stay fully visible on the right */
+@media (min-width: 1025px) {
+  .hero-container { grid-template-rows: auto auto auto; }
+  .hero-visual { grid-column: 1; grid-row: 3; justify-self: stretch; align-self: auto; max-width: 600px; }
+}
+.hero-title .highlight { color: #A94763; }   /* deeper rose = readable on the photo */
+
+
+/* ══════════ ROUND 2 — navbar back to compact original · bigger logo only · glassy hero ══════════ */
+/* Navbar: transparent like the original; a slim glass pill keeps links readable over the photo. Height ≈ original. */
+.navbar { padding: 8px 0; }
+.nav-container { position: relative; padding: 4px 26px; }
+.nav-container::before {            /* glass lives on a pseudo-element so the mobile full-screen menu (position:fixed) still works */
+  content: ''; position: absolute; inset: 0; z-index: -1; border-radius: 999px; pointer-events: none;
+  background: rgba(255,255,255,.5);
+  -webkit-backdrop-filter: blur(14px) saturate(1.4); backdrop-filter: blur(14px) saturate(1.4);
+  border: 1px solid rgba(255,255,255,.7);
+  box-shadow: 0 8px 26px rgba(78,78,78,.1), inset 0 1px 0 rgba(255,255,255,.8);
+}
+.navbar.scrolled .nav-container::before { background: transparent; border-color: transparent; box-shadow: none; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.logo-full { height: 60px; }                       /* was 52px — logo only */
+@media (max-width: 1100px) { .logo-full { height: 50px; } }
+@media (max-width: 640px)  { .logo-full { height: 46px; } .nav-container { padding: 4px 16px; } }
+/* hero clearance for the (unchanged-height) navbar */
+.hero-container { padding-top: 100px; padding-bottom: 40px; row-gap: 10px; }
+@media (max-width: 1024px) { .hero-container { padding-top: 96px; } }
+@media (max-width: 768px)  { .hero-container { padding-top: 88px; } }
+@media (max-width: 480px)  { .hero-container { padding-top: 84px; } }
+
+/* Glassier hero: frosted panels with a light edge, text stays bold + dark */
+.hero-content, .hero-services, .hero-visual {
+  background: rgba(255,255,255,.3);
+  -webkit-backdrop-filter: blur(16px) saturate(1.35); backdrop-filter: blur(16px) saturate(1.35);
+  border: 1px solid rgba(255,255,255,.6);
+  box-shadow: 0 14px 40px rgba(78,78,78,.12), inset 0 1px 0 rgba(255,255,255,.85), inset 0 -1px 0 rgba(255,255,255,.25);
+}
+.hero-content { padding: clamp(20px, 2.2vw, 28px) clamp(20px, 2.6vw, 34px); border-radius: 28px; }
+.hero-desc { margin-bottom: 16px; }
+.hero-services, .hero-visual { padding-top: 6px; padding-bottom: 6px; }
+.hero-overlay { background: linear-gradient(90deg, rgba(255,248,245,.38) 0%, rgba(255,248,245,.12) 45%, transparent 62%); }
+@media (max-width: 768px) { .hero-content { background: rgba(255,255,255,.3); } }
+/* "Scroll down" cue only where there is spare height (it overlapped the bottom bar on laptops) */
+@media (max-height: 860px) { .hero-scroll { display: none; } }
+
+
+/* ══════════ ROUND 3 — tourism polish + clean hero buttons ══════════ */
+.tourism-compare-card { box-shadow: 0 6px 20px rgba(78,78,78,.06); }
+.tourism-compare-card .tc-flag { color: var(--gold); }
+.tourism-note { margin: 14px 0 0; text-align: center; font-size: 12.5px; color: var(--brown-mid); line-height: 1.5; }
+.tourism-cta { display: flex; justify-content: center; margin-top: 16px; }
+.tourism-cta .btn { gap: 8px; }
+.tourism-calc-row > div { flex: 1; min-width: 160px; }
+.tourism-calc-row select { min-height: 44px; }
+@media (max-width: 480px) { .tourism-calc { padding: 22px 16px; } .tourism-cta .btn { width: 100%; justify-content: center; } .tourism-compare { gap: 10px; } }
+
+/* Hero buttons: no glow text-shadow, one clean brand colour */
+.hero-buttons .btn, .hero-buttons .btn * { text-shadow: none; }
+.hero-buttons .btn-primary, .nav-cta, .wl-submit { background: #A94763; color: #fff; border: 1px solid rgba(255,255,255,.35); box-shadow: 0 6px 18px rgba(169,71,99,.3); }
+.hero-buttons .btn-primary:hover, .nav-cta:hover, .wl-submit:hover { background: #8F3752; color: #fff; box-shadow: 0 10px 24px rgba(169,71,99,.38); }
+.hero-buttons .btn-outline { background: rgba(255,255,255,.6); -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px); border: 1.5px solid rgba(169,71,99,.45); color: #7A2E45; }
+.hero-buttons .btn-outline:hover { background: #fff; border-color: #A94763; color: #A94763; }
